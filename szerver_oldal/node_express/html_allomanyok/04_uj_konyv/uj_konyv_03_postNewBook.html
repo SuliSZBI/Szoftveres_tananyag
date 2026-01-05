@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="../../expressjs.svg" type="image/x-icon" />
+        <link rel="stylesheet" href="../../stilus/stilus.css" />
+        <title>Új könyv felvétele - postNewBookControllersBackend.mjs</title>
+    </head>
+    <body>
+        <div id="alap-kontener">
+            <h1>
+                <a href="./uj_konyv_02_getNewBook.html">
+                    <img
+                        src="../../angle-square-left.png"
+                        id="jobb-ikon"
+                        title="Új könyv felvétele - getNewBookControllersBackend.mjs" />
+                </a>
+                <a href="../../index.html">Új könyv felvétele - postNewBookControllersBackend.mjs</a>
+                <a href="./uj_konyv_04_onepicturetocloudinary.html"
+                    ><img
+                        src="../../angle-square-right.png"
+                        id="jobb-ikon"
+                        title="Új könyv felvétele - onePictureToCloudinary.mjs" />
+                </a>
+            </h1>
+            <p>
+                Ebben a részben szerkesztjük a <code>controllers</code> mappában a <code>postNewBookControllersBackend.mjs</code> állományt, amelyben kidolgozzuk a <code>CRUD</code> <code>Creat</code> művelethez tartozó logikát. Ez megfelel a <code>http POST metódus</code>-hoz tartozó logikának.
+            </p>
+            <ul>
+                <li>
+                    Szerkesszük a <code>postNewBookControllersBackend.mjs</code> állományunkat.
+                    <button>postNewBookControllersBackend.mjs</button>                    
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_040.png" />
+                        </div>
+                    </div>
+                    <ol>
+                        <li>
+                            <code class="magyarazo">import Book from '../models/BookModelOnePicture.mjs';</code>
+                            - a <code>Book</code> modell <b>alapértelmezett</b> beimportálása.
+                        </li>
+                        <li>
+                            <code class="magyarazo">export const postNewBookBackend = (req, res) => {...};</code>
+                            - hozzuk létre és vigyük ki <b>nevesítve</b> a
+                            <code>http POST metódus</code>-hoz tartozó logikát (<code>Creat</code> a
+                            <code>CRUD</code> műveletekből).
+                        </li>
+                         <li>
+                            <code class="magyarazo">try {... res.statusCode = 201; return res.json({ msg: 'Sikeres feltöltés!' });}</code>
+                            - a sikeres ág a <b>201</b>-es <code>http hibakód</code>-dal.
+                        </li>
+                        <li>
+                            <code class="magyarazo">const {...} = req.body;</code>
+                            - a <code>req.body</code> dekonstrukciója.
+                        </li>
+                        <li>
+                            <code class="magyarazo">const irok = szerzok.split(',');</code>
+                            - szedjük szét a szerzőket egy tömbbe.
+                        </li>
+                        <li>
+                            <code class="magyarazo">const newBook = new Book({...});</code>
+                            - hozzunk létre egy új <code>Book</code> példányt a
+                            <code>req.body</code>-ból kapott értékekből. <br />
+                            Figyeljünk a <code>szerzok: irok</code> értékre!
+                        </li>
+                        <li>
+                            <code class="magyarazo">await newBook.save();</code>
+                            - mentsük el az adatbázisba.
+                        </li>
+                        <li>
+                            <code class="magyarazo">catch (error) { res.statusCode = 500; return
+                                res.json({ msg: 'Valami hiba történt!' });}</code
+                            >
+                            - a sikertelen ág a <b>500</b>-as <code>http hibakód</code>-dal.
+                        </li>
+                    </ol>
+                </li>
+            </ul>
+        </div>
+        <script src="../../rejt.js"></script>
+    </body>
+</html>

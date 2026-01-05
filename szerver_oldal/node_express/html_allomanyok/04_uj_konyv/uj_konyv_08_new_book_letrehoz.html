@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="../../expressjs.svg" type="image/x-icon" />
+        <link rel="stylesheet" href="../../stilus/stilus.css" />
+        <title>Új könyv felvétele - new_book_letrehoz.mjs</title>
+    </head>
+    <body>
+        <div id="alap-kontener">
+            <h1>
+                <a href="./uj_konyv_07_new_book.html">
+                    <img
+                        src="../../angle-square-left.png"
+                        id="jobb-ikon"
+                        title="Új könyv felvétele - new_book.ejs" />
+                </a>
+                <a href="../../index.html">Új könyv felvétele - new_book_letrehoz.mjs</a>
+            </h1>
+            <p>
+                Ebben a részben szerkesztjük az <code>public/js</code> mappában az új könyv felvételéhez szükséges <code>new_book_letrehoz.mjs</code> állományt.
+            </p>
+            <ul>
+                <li>
+                    Szerkesszük a <code>new_book_letrehoz.mjs</code> állományt. <button>new_book_letrehoz.mjs</button>                    
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_055.png" />
+                        </div>
+                    </div>
+                    <ol>
+                        <li>
+                            <code class="magyarazo">async function letrehoz(event) {...}</code>
+                            - az új könyv létrehozásáért felelős <code>aszinkron</code> függvény.
+                        </li>
+                        <li>
+                            <code class="magyarazo">event.preventDefault();</code>
+                            - az adatok elküldése után ne frissüljön az oldal.
+                        </li>
+                        <li>
+                            <code class="magyarazo">const response = await fetch('/api/new-book', {...});</code>
+                            - a <code>fetch</code> hívása után kapott <code>promise</code>.
+                        </li>
+                        <li>
+                            <code class="magyarazo">method: 'POST',</code>
+                            - adatokat küldünk a szervernek, tehát a <code>http POST metódus</code>-t használjuk.
+                        </li>
+                        <li>
+                            <code class="magyarazo">headers: { 'Content-Type': 'application/json' },</code>
+                            - annak jelölése, hogy a <code>request body</code> tartalmát <code>JSON</code> formátumban fogjuk küldeni.
+                        </li>
+                        <li>
+                            <code class="magyarazo">body: JSON.stringify({...}),</code>
+                            - csomagoljuk is be.
+                        </li>
+                        <li>
+                            <code class="magyarazo">const resp = await response.json();</code>
+                            - a szervertől jövő válasz kicsomagolása, ha létezik.
+                        </li>
+                        <li>
+                            <code class="magyarazo">if (response.ok) { window.alert(resp.msg); window.location.href = '/api/books-backend'; }</code>
+                            - ha sikeres a feltöltés, akkor ezt írjuk ki és menjünk át a <code>/api/books-backend</code> <code>route</code>-ra. Még nem létezik!
+                        </li>
+                        <li>
+                            <code class="magyarazo">else { window.alert(resp.msg); }</code>
+                            - ha nem sikeres a feltöltés, akkor ezt írjuk ki.
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    Az eddigi munka letölthető formátumban:
+                    <a href="../../download_allomanyok/backend_03.rar" download="backend_03.rar">backend_03.rar</a>
+                    <br />Letöltés és kicsomagolás után a
+                    <code>GitBash</code> felületen a
+                    <code>backend</code> mappában adjuk ki a következő
+                    utasítást: <br />
+                    <code class="kod-reszlet">npm install</code>
+                </li>
+                <li>
+                    A webszerver futtatásához adjuk ki a következő utasítást a <code>GitBash</code> felületen: <br /> 
+                    <code class="kod-reszlet">node --watch ./src/server.mjs</code>
+                </li>
+            </ul>
+        </div>
+        <script src="../../rejt.js"></script>
+    </body>
+</html>

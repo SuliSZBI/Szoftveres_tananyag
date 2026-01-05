@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="../../expressjs.svg" type="image/x-icon" />
+        <link rel="stylesheet" href="../../stilus/stilus.css" />
+        <title>Összes könyv kezelése - book_kezel.mjs</title>
+    </head>
+    <body>
+        <div id="alap-kontener">
+            <h1>
+                <a href="./osszes_konyv_06_allbooks.html">
+                    <img
+                        src="../../angle-square-left.png"
+                        id="jobb-ikon"
+                        title="Összes könyv kezelése - all_Books.ejs" />
+                </a>
+                <a href="../../index.html">Összes könyv kezelése - book_kezel.mjs</a>
+            </h1>
+            <p>
+                Ebben a részben szerkesztjük az <code>public/js</code> mappában egy könyv törléséhez szükséges <code>book_kezel.mjs</code> állományt.
+            </p>
+            <ul>
+                <li>
+                    Szerkesszük a <code>book_kezel.mjs</code> állományt. <button>book_kezel.mjs</button>                    
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_071.png" />
+                        </div>
+                    </div>
+                    <ol>
+                        <li>
+                            <code class="magyarazo">async function torles(id) {...}</code>
+                            - egy könyv törléséért felelős <code>aszinkron</code> függvény.
+                        </li>
+                        <li>
+                            <code class="magyarazo">const response = await fetch(`/api/books-backend/${id}`, {...});</code>
+                            - a <code>fetch</code> hívása után kapott <code>promise</code>.
+                        </li>
+                        <li>
+                            <code class="magyarazo">method: 'DELETE',</code>
+                            - adatokat küldünk a szervernek, tehát a <code>http DELETE metódus</code>-t használjuk.
+                        </li>
+                        <li>
+                            <code class="magyarazo">headers: { 'Content-Type': 'application/json' },</code>
+                            - annak jelölése, hogy a <code>request body</code> tartalmát <code>JSON</code> formátumban fogjuk küldeni.
+                        </li>
+                        <li>
+                            <code class="magyarazo">const resp = await response.json();</code>
+                            - a szervertől jövő válasz kicsomagolása, ha létezik.
+                        </li>
+                        <li>
+                            <code class="magyarazo">if (response.ok) { window.alert(resp.msg); window.location.href = '/api/books-backend'; }</code>
+                            - ha sikeres a törlés, akkor ezt írjuk ki és menjünk át a <code>/api/books-backend</code> <code>route</code>-ra.
+                        </li>
+                        <li>
+                            <code class="magyarazo">else { window.alert(resp.msg); }</code>
+                            - ha nem sikeres a feltöltés, akkor ezt írjuk ki.
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    Az eddigi munka letölthető formátumban:
+                    <a href="../../download_allomanyok/backend_04.rar" download="backend_04.rar">backend_04.rar</a>
+                    <br />Letöltés és kicsomagolás után a
+                    <code>GitBash</code> felületen a
+                    <code>backend</code> mappában adjuk ki a következő
+                    utasítást: <br />
+                    <code class="kod-reszlet">npm install</code>
+                </li>
+                <li>
+                    A webszerver futtatásához adjuk ki a következő utasítást a <code>GitBash</code> felületen: <br /> 
+                    <code class="kod-reszlet">node --watch ./src/server.mjs</code>
+                </li>
+            </ul>
+        </div>
+        <script src="../../rejt.js"></script>
+    </body>
+</html>

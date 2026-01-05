@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="../../expressjs.svg" type="image/x-icon" />
+        <link rel="stylesheet" href="../../stilus/stilus.css" />
+        <title>Összes könyv kezelése - all_Books.ejs</title>
+    </head>
+    <body>
+        <div id="alap-kontener">
+            <h1>
+                <a href="./osszes_konyv_05_allbooksrouting.html">
+                    <img
+                        src="../../angle-square-left.png"
+                        id="jobb-ikon"
+                        title="Összes könyv kezelése - allBooksRouting.mjs" />
+                </a>
+                <a href="../../index.html">Összes könyv kezelése - all_Books.ejs</a>
+                <a href="./osszes_konyv_07_bookkezel.html"
+                    ><img
+                        src="../../angle-square-right.png"
+                        id="jobb-ikon"
+                        title="Összes könyv kezelése - book_kezel.mjs" />
+                </a>
+            </h1>
+            <p>
+                Ebben a részben szerkesztjük az <code>views/all_books</code> mappában az összes könyv megjelenítéséhez szükséges <code>ejs</code> állományokat.
+            </p>
+            <ul>
+                <li>
+                    Szerkesszük a <code>nav.ejs</code> állományt. <button>Előtte</button> és <button>Utána</button>
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_048.png" />
+                        </div>
+                        <div class="kep">
+                            <img src="../../kepek/kep_064.png" />
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    Szerkesszük az <code>all_books.ejs</code> állományt. <button>all_books.ejs</button>                    
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_065.png" />
+                        </div>
+                    </div>
+                    <ol>
+                        <li>
+                            <code class="magyarazo">&lt;link rel="stylesheet" href="/css/all_books.css" /&gt;</code>
+                            - mivel a <code>server.mjs</code> állományban beállítottuk a hivatkozást a
+                            <code>public</code> mappára, ezért minden elemére ilyen speciálisan tudunk hivatkozni.
+                        </li>
+                        <li>
+                            <code class="magyarazo">&lt;%- include('nav.ejs') %&gt;</code>
+                            - beimportálása a <code>nav.ejs</code> állománynak.
+                        </li>
+                        <li>
+                            <code class="magyarazo">&lt;%- include('tr_elem.ejs', { td: 'Cím', targy: elem.cim }) %&gt;</code>
+                            - beimportálása a <code>tr_elem.ejs</code> állománynak, ahol átadjuk a <code>{ td: 'Cím', targy: elem.cim }</code> objektumot.
+                        </li>
+                        <li>
+                            <code class="magyarazo">&lt;%- include('tr_kep.ejs', { td: 'Kép', targy: elem }) %&gt;</code>
+                            - beimportálása a <code>tr_kep.ejs</code> állománynak, ahol átadjuk a <code>{ td: 'Kép', targy: elem }</code> objektumot.
+                        </li>
+                        <li>
+                            <code class="magyarazo">&lt;%- include('szerzok.ejs', { td: 'Szerzők', targy: elem }) %&gt;</code>
+                            - beimportálása a <code>zsaner.ejs</code> állománynak, ahol átadjuk a <code>{ td: 'Szerzők', targy: elem }</code> objektumot.
+                        </li>
+                        <li>
+                            <code class="magyarazo">&lt;a class="modosit" href="/api/books-backend/&lt;%= elem._id %&gt;"&gt;Lekérés&lt;/a&gt;</code>
+                            - a következő részben kidolgozandó elemenkénti lekérése a könyveknek.
+                        </li>
+                        <li>
+                            <code class="magyarazo">&lt;button class="torol" onclick="torles('&lt;%= elem._id%&gt;')"&gt;Törlés&lt;/button&gt;</code>
+                            - helyezzünk el egy <code>onclick="torles(...)"</code> eseménykezelőt a gombra.
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    Szerkesszük a <code>tr_elem.ejs</code> és <code>tr_kep.ejs</code>. <button>tr_elem.ejs</button> és <button>tr_kep.ejs</button>
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_066.png" />
+                        </div>
+                        <div class="kep">
+                            <img src="../../kepek/kep_067.png" />
+                        </div>
+                    </div>
+                    <ol>
+                        <li>
+                            <code class="magyarazo">&lt;td&gt;&lt;%= td %&gt;:&lt;/td&gt;</code>
+                            - a <code>all_books.ejs</code>-től kapott objektumból kivesszük a <code>td</code> értéket.
+                        </li>
+                        <li>
+                            <code class="magyarazo">&lt;img src="&lt;%= targy.kep %&gt;" /&gt;</code>
+                            - a <code>all_books.ejs</code>-től kapott objektumból kivesszük az <code>targy.kep</code> értéket.
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    Szerkesszük a <code>szerzo.ejs</code> állományt. <button>szerzok.ejs</button>
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_068.png" />
+                        </div>
+                    </div>
+                    <ol>
+                        <li>
+                            <code class="magyarazo">targy.szerzok</code>
+                            - a <code>all_books.ejs</code>-től kapott objektumból kivesszük a <code>targy.szerzok</code> értéket.
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    Szerkesszük az
+                    <code>all_books.css</code> állományt.
+                    <button>all_books.css 1</button> és <button>all_books.css 2</button>
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_069.png" />
+                        </div>
+                        <div class="kep">
+                            <img src="../../kepek/kep_070.png" />
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <script src="../../rejt.js"></script>
+    </body>
+</html>

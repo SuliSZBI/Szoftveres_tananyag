@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="../../expressjs.svg" type="image/x-icon" />
+        <link rel="stylesheet" href="../../stilus/stilus.css" />
+        <title>Új könyv felvétele</title>
+    </head>
+    <body>
+        <div id="alap-kontener">
+            <h1>
+                <a href="../../index.html">Új könyv felvétele</a>
+                <a href="./uj_konyv_01_book_model.html"
+                    ><img
+                        src="../../angle-square-right.png"
+                        id="jobb-ikon"
+                        title="Új könyv felvétele - BookModelOnePicture.mjs" />
+                </a>
+            </h1>
+            <p>
+                Ebben a részben létrehozzuk azt a nézetünket (view), ahol új
+                könyveket tudunk majd felvenni.
+            </p>
+            <ul>
+                <li>
+                    Hozzuk létre a következő állományokat:
+                    <ol>
+                        <li>
+                            <code>BookModelOnePicture.mjs</code> a <code>models</code>
+                            mappában,
+                        </li>
+                        <li>
+                            <code>adatok.mjs</code> a <code>public/js</code>
+                            mappában,
+                        </li>
+                        <li>
+                            <code>getNewBookControllersBackend.mjs</code> a
+                            <code>controllers/newBook</code> mappában,
+                        </li>
+                        <li>
+                            <code>postNewBookControllersBackend.mjs</code> a
+                            <code>controllers/newBook</code> mappában,
+                        </li>
+                        <li>
+                            <code>onePictureToCloudinary.mjs</code> a
+                            <code>middlewares</code> mappában,
+                        </li>
+                        <li>
+                            <code>newBookRoutesBackend.mjs</code> a
+                            <code>routes</code> mappában,
+                        </li>
+                        <li>
+                            <code>newBookRouting.mjs</code> az
+                            <code>src/routing</code> mappában,
+                        </li>
+                        <li>
+                            <code>new_book.ejs</code> a <code>views/new_book</code>
+                            mappában,
+                        </li>
+                        <li>
+                            <code>tr_text.ejs</code>, <code>tr_textarea.ejs</code>, <code>tr_number.ejs</code> a <code>views/new_book</code>
+                            mappában,
+                        </li>
+                        <li>
+                            <code>zsaner.ejs</code>, <code>kedvezmeny.ejs</code> a <code>views/new_book</code>
+                            mappában,
+                        </li>
+                        <li>
+                            <code>new_book.css</code> a
+                            <code>public/css</code> mappában.
+                        </li>
+                        <li>
+                            <code>new_book_letrehoz.mjs</code> a
+                            <code>public/js</code> mappában.
+                        </li>
+                    </ol>
+                    <button>Mappák előtte</button>,  <button>Mappák utána 1</button> és <button>Mappák utána 2</button>
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_033.png" />
+                        </div>
+                        <div class="kep">
+                            <img src="../../kepek/kep_035.png" />
+                        </div>
+                        <div class="kep">
+                            <img src="../../kepek/kep_036.png" />
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <script src="../../rejt.js"></script>
+    </body>
+</html>

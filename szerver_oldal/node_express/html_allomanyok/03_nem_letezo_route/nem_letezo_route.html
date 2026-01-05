@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="../../expressjs.svg" type="image/x-icon" />
+        <link rel="stylesheet" href="../../stilus/stilus.css" />
+        <title>Alap route-olás</title>
+    </head>
+    <body>
+        <div id="alap-kontener">
+            <h1>
+                <a href="../../index.html">Nem létező route</a>
+            </h1>
+            <p>
+                Ebben a részben azzal foglalkozunk, hogy mit küldjön vissza a szerver, ha olyan <code>URL</code>-t kap, amiben nincs olyan <code>route</code>-t amit kezelni tudna.
+            </p>
+            <ul>
+                <li>
+                    Hozzuk létre a <code>failRouting.mjs</code> állományt az <code>src/routing</code> mappában. <button>Mappák előtte</button>, <button>Mappák utána</button>, <button>failRouting.mjs</button> és <button>böngésző</button>
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_019.png" />
+                        </div>
+                        <div class="kep">
+                            <img src="../../kepek/kep_033.png" />
+                        </div>
+                        <div class="kep">
+                            <img src="../../kepek/kep_032.png" />
+                        </div>
+                        <div class="kep">
+                            <img src="../../kepek/kep_034.png" />
+                        </div>
+                    </div>
+                    <ol>
+                        <li>
+                            <code class="magyarazo">import app from '../app.mjs';</code>
+                            - az <code>app</code> objektum <b>alapértelmezett</b> beimportálása.
+                        </li>
+                        <li>
+                            <code class="magyarazo">app.use((req, res), => {...});</code>
+                            - a <code>use</code>
+                            <code>middleware</code> segítségével egy speciális <code>route</code> kezelő függvényt hívunk meg. Nincs megadva benne <code>route</code>!!!
+                        </li>
+                        <li>
+                            <code class="magyarazo">try { res.statusCode = 404; return res.render('404.ejs'); }</code>
+                            - a "sikeres" ág 404-es <code>http hibakód</code>-dal.
+                        </li>
+                        <li>
+                            <code class="magyarazo">catch (error) { res.statusCode = 500; return res.json({ msg: 'Általános szerver hiba!' }); }</code>
+                            - a "sikertelen" ág 500-as <code>http hibakód</code>-dal.
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    Szerkesszük újra a <code>server.mjs</code> állományt. <button>Előtte</button> és <button>Utána</button>
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_024.png" />
+                        </div>
+                        <div class="kep">
+                            <img src="../../kepek/kep_046.png" />
+                        </div>
+                    </div>
+                    <ol>
+                        <li>
+                            <code class="magyarazo">await import('./routing/failRouting.mjs');</code>
+                            - importáljuk be a <code>failRouting.mjs</code>-ben létrehozott <code>promise</code>-t.
+                        </li>
+                        
+                    </ol>
+                </li>
+                <li>
+                    Az eddigi munka letölthető formátumban:
+                    <a href="../../download_allomanyok/backend_02.rar" download="backend_02.rar">backend_02.rar</a>
+                    <br />Letöltés és kicsomagolás után a
+                    <code>GitBash</code> felületen a
+                    <code>backend</code> mappában adjuk ki a következő
+                    utasítást: <br />
+                    <code class="kod-reszlet">npm install</code>
+                </li>
+                <li>
+                    A webszerver futtatásához adjuk ki a következő utasítást a <code>GitBash</code> felületen: <br /> 
+                    <code class="kod-reszlet">node --watch ./src/server.mjs</code>
+                </li>
+            </ul>
+        </div>
+        <script src="../../rejt.js"></script>
+    </body>
+</html>

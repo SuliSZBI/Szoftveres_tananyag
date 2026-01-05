@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="../../expressjs.svg" type="image/x-icon" />
+        <link rel="stylesheet" href="../../stilus/stilus.css" />
+        <title>Új könyv felvétele - onePictureToCloudinary.mjs</title>
+    </head>
+    <body>
+        <div id="alap-kontener">
+            <h1>
+                <a href="./uj_konyv_03_postNewBook.html">
+                    <img
+                        src="../../angle-square-left.png"
+                        id="jobb-ikon"
+                        title="Új könyv felvétele - postNewBookControllersBackend.mjs" />
+                </a>
+                <a href="../../index.html">Új könyv felvétele - onePictureToCloudinary.mjs</a>
+                <a href="./uj_konyv_05_newbookroutesbackend.html"
+                    ><img
+                        src="../../angle-square-right.png"
+                        id="jobb-ikon"
+                        title="Új könyv felvétele - newBookRoutesBackend.mjs" />
+                </a>
+            </h1>
+            <p>
+                Ebben a részben szerkesztjük a <code>middlewares</code> mappában a <code>onePictureToCloudinary.mjs</code> állományt, amelyben összekötjük a webszerverünket a <code>Cloudinary</code> felülettel és egy képet töltünk fel.
+            </p>
+            <ul>
+                <li>
+                    Szerkesszük a <code>.env</code> állományt.
+                    <button>Előtte</button> és
+                    <button>Utána</button>
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_011.png" />
+                        </div>
+                        <div class="kep">
+                            <img src="../../kepek/kep_042.png" />
+                        </div>
+                    </div>
+                    <ol>
+                        <li>
+                            <code class="magyarazo"
+                                >CLOUDINARY_API_CLOUD_NAME=saját
+                                felhőnév...</code
+                            >
+                            - mindenkinek a saját csatlakozási értékei a
+                            <code>Cloudinary</code> felületről.
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    Szerkesszük a <code>onePictureToCloudinary.mjs</code> állományunkat.
+                    <button>onePictureToCloudinary.mjs</button>                    
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_041.png" />
+                        </div>
+                    </div>
+                    <ol>
+                        <li>
+                            <code class="magyarazo">import dotenv from 'dotenv';</code>
+                            - a <code>dotenv</code> <code>npm</code> csomag
+                            beimportálása.
+                        </li>
+                        <li>
+                            <code class="magyarazo">dotenv.config();</code>
+                            - az értékeket a <code>.env</code> állományban
+                            keresse a <code>backend</code> mappában.
+                        </li>
+                        <li>
+                            <code class="magyarazo">import { v2 as cloudinary } from 'cloudinary';</code>
+                            - a <code>cloudinary</code> <code>npm</code> csomag
+                            beimportálása, mint <code>v2</code>.
+                        </li>
+                        <li>
+                            <code class="magyarazo">cloudinary.config({...})</code>
+                            - a <code>Cloudinary</code> oldalról vett értékek
+                            beállítása a <code>.env</code> állományból.
+                        </li>
+                        <li>
+                            <code class="magyarazo">const pictureUploader = async (req, res, next) => {...};</code>
+                            - a <code>pictureUploader</code> függvény létrehozása, amellyel feltöltjük a képet a felhőbe.
+                        </li>
+                        <li>
+                            <code class="magyarazo">const { kep } = req.body;</code>
+                            - szedjük ki a <code>kep</code> tulajdonságot a
+                            <code>req.body</code>-ból.
+                        </li>
+                        <li>
+                            <code class="magyarazo">const result = await cloudinary.uploader.upload(kep);</code>
+                            - töltsük fel a felhőbe.
+                        </li>
+                        <li>
+                            <code class="magyarazo">req.body.kep = result.url;</code>
+                            - legyen a <code>req.body.kep</code> új értéke ez a <code>URL</code> cím.
+                        </li>
+                        <li>
+                            <code class="magyarazo">next();</code>
+                            - lépjünk a következő <code>middleware</code>-re.
+                        </li>
+                        <li>
+                            <code class="magyarazo">export default pictureUploader;</code>
+                            - a <code>pictureUploader</code> függvény
+                            <b>alapértelmezett</b> kivitele.
+                        </li>
+                    </ol>
+                </li>
+            </ul>
+        </div>
+        <script src="../../rejt.js"></script>
+    </body>
+</html>

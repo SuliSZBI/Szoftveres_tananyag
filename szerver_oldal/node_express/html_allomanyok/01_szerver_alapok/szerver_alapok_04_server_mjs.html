@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="../../expressjs.svg" type="image/x-icon" />
+        <link rel="stylesheet" href="../../stilus/stilus.css" />
+        <title>Szerver alapok - server.mjs</title>
+    </head>
+    <body>
+        <div id="alap-kontener">
+            <h1>
+                <a href="./szerver_alapok_03_dbconnect_mjs.html">
+                    <img
+                        src="../../angle-square-left.png"
+                        id="jobb-ikon"
+                        title="Szerver alapok - dbConnect.mjs" />
+                </a>
+                <a href="../../index.html">Szerver alapok - server.mjs</a>
+            </h1>
+            <p>
+                Ebben a részben létrehozzuk az <code>src</code> mappában a <code>server.mjs</code> állományt, amelyben "összeállítjuk" a webszervert. 
+            </p>
+            <ul>
+                <li>
+                    Hozzuk létre az <code>src</code> mappában a <code>server.mjs</code> állományt. <button>Mappák előtte</button>és <button>Mappák utána</button> és <button>server.mjs</button>
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_013.png" />
+                        </div>
+                        <div class="kep">
+                            <img src="../../kepek/kep_015.png" />
+                        </div>
+                        <div class="kep">
+                            <img src="../../kepek/kep_016.png" />
+                        </div>
+                    </div>
+                    <ol>
+                        <li>
+                            <code class="magyarazo">await import('./dbConnect.mjs');</code>
+                            - importáljuk be a <code>dbConnect.mjs</code>-ben létrehozott <code>promise</code>-t.
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    A webszerver futtatásához adjuk ki a következő utasítást a <code>GitBash</code> felületen: <button>GitBash</button> és <button>Böngésző</button> <br /> 
+                    <code class="kod-reszlet">node --watch ./src/server.mjs</code>
+                    
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_017.png" />
+                        </div>
+                        <div class="kep">
+                            <img src="../../kepek/kep_018.png" />
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    Az eddigi munka letölthető formátumban:
+                    <a href="../../download_allomanyok/backend_01.rar" download="backend_01.rar">backend_01.rar</a>
+                    <br />Letöltés és kicsomagolás után a
+                    <code>GitBash</code> felületen a
+                    <code>backend</code> mappában adjuk ki a következő
+                    utasítást: <br />
+                    <code class="kod-reszlet">npm install</code>
+                </li>
+                <li>
+                    A webszerver futtatásához adjuk ki a következő utasítást a <code>GitBash</code> felületen: <br /> 
+                    <code class="kod-reszlet">node --watch ./src/server.mjs</code>
+                </li>
+            </ul>
+        </div>
+        <script src="../../rejt.js"></script>
+    </body>
+</html>

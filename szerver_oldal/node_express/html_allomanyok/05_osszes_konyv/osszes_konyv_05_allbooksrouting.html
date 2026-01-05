@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="../../expressjs.svg" type="image/x-icon" />
+        <link rel="stylesheet" href="../../stilus/stilus.css" />
+        <title>Összes könyv kezelése - allBooksRouting.mjs</title>
+    </head>
+    <body>
+        <div id="alap-kontener">
+            <h1>
+                <a href="./osszes_konyv_04_allbooksroutes.html">
+                    <img
+                        src="../../angle-square-left.png"
+                        id="jobb-ikon"
+                        title="Összes könyv kezelése - allBooksRoutesBackend.mjs" />
+                </a>
+                <a href="../../index.html">Összes könyv kezelése - allBooksRouting.mjs</a>
+                <a href="./osszes_konyv_06_allbooks.html"
+                    ><img
+                        src="../../angle-square-right.png"
+                        id="jobb-ikon"
+                        title="Összes könyv kezelése - all_Books.ejs" />
+                </a>
+            </h1>
+            <p>
+                Ebben a részben szerkesztjük az <code>src/routing</code> mappában a <code>allBooksRouting.mjs</code> állományt, amelyben összekötjük a <code>/api/books-backend</code> <code>route</code>-ot a logikával.
+            </p>
+            <ul>
+                <li>
+                    Szerkesszük a <code>deleteOneBookControllersBackend.mjs</code> állományunkat.
+                    <button>deleteOneBookControllersBackend.mjs</button>                    
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_062.png" />
+                        </div>
+                    </div>
+                    <ol>
+                        <li>
+                            <code class="magyarazo">import app from '../app.mjs';</code>
+                            - az <code>app</code> objektum <b>alapértelmezett</b> beimportálása.
+                        </li>
+                        <li>
+                            <code class="magyarazo">import allBooksRouter from '../../routes/allBooksRoutesBackend.mjs';</code>
+                            - a <code>allBooksRouter</code> függvény
+                            <b>alapértelmezett</b> beimportálása.
+                        </li>
+                        <li>
+                            <code class="magyarazo">app.use('/api/books-backend', allBooksRouter);</code>
+                            - a <code>use</code> <code>middleware</code> segítségével a
+                            <code>/api/books-backend</code> <code>route</code>-hoz csatoljuk a
+                            <code>allBooksRouter</code> függvényt. <br />
+                            Azaz bármikor is küldünk egy
+                            <code>http://localhost:PORT/api/books-backend</code> lekérést a
+                            webszervernek, akkor az ehhez tartozó logikával tér vissza.
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    Szerkesszük újra a <code>server.mjs</code> állományt. <button>Előtte</button> és <button>Utána</button>
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_045.png" />
+                        </div>
+                        <div class="kep">
+                            <img src="../../kepek/kep_063.png" />
+                        </div>
+                    </div>
+                    <ol>
+                        <li>
+                            <code class="magyarazo">await import('./routing/allBooksRouting.mjs');</code>
+                            - importáljuk be a <code>allBooksRouting.mjs</code>-ben létrehozott <code>promise</code>-t.
+                        </li>
+                        
+                    </ol>
+                </li>
+            </ul>
+        </div>
+        <script src="../../rejt.js"></script>
+    </body>
+</html>

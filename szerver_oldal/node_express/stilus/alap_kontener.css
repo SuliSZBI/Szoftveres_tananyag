@@ -1,0 +1,47 @@
+#alap-kontener {
+    background-color: var(--feher);
+    margin: auto;
+    padding: 1em;
+    width: 80%;
+}
+
+#alap-kontener ul {
+    list-style-position: inside;
+    list-style-type: square;
+    margin-top: 1em;
+}
+
+#alap-kontener ul > li {
+    border-bottom: 2px solid var(--szurke);
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+}
+
+#alap-kontener ol {
+    list-style-position: inside;
+    margin-top: 1em;
+}
+
+#alap-kontener ol > li {
+    margin-bottom: 1em;
+}
+
+.belso-ol li a {
+    color: var(--piros);
+;}
+
+#alap-kontener button {
+    background-color: var(--kek);
+    border: none;
+    color: var(--feher);
+    cursor: pointer;
+    display: inline-block;
+    font-family: var(--system);
+    padding: 2px;
+}
+
+@media screen and (max-width: 1000px) {
+    #alap-kontener {
+        width: 90%;
+    }
+}

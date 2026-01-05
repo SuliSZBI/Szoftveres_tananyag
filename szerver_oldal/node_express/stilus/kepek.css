@@ -1,0 +1,19 @@
+.kepek {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+
+.kep {
+    border: 1px solid;
+    height: 80px;
+    width: 100px;
+}
+
+.kep img {
+    border: 1px solid var(--piros);
+    height: 100%;
+    width: 100%;
+}

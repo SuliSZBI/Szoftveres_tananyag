@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="../../expressjs.svg" type="image/x-icon" />
+        <link rel="stylesheet" href="../../stilus/stilus.css" />
+        <title>Szerver alapok</title>
+    </head>
+    <body>
+        <div id="alap-kontener">
+            <h1>
+                <a href="../../index.html">Szerver alapok</a>
+                <a href="./szerver_alapok_01_app_mjs.html">
+                    <img
+                        src="../../angle-square-right.png"
+                        id="jobb-ikon"
+                        title="Szerver alapok - app.mjs" />
+                </a>
+            </h1>
+            <p>
+                Ebben a részben összefoglaljuk, hogy milyen kezdeti műveleteket
+                kell végrehajtani egy webszerverhez szükséges projekt
+                létrehozásakor az <a href="https://expressjs.com/" target="_blank">express.js</a>
+                keretrendszer segítségével.
+            </p>
+            <ul>
+                <li>
+                    A <a href="https://www.mongodb.com/" target="_blank">MongoDB</a>
+                    felületen hozzunk létre egy projektet
+                    <code>Webshop</code> néven. Ezen belül alkossuk meg a
+                    <code>Konyvesbolt</code> nevű adatbázisunkat.
+                </li>
+                <li>
+                    Regisztráljunk a <a href="https://cloudinary.com/" target="_blank">Cloudinary</a>
+                    felületen, ha még nem lenne fiókunk.
+                </li>
+                <li>
+                    Hozzunk létre egy <code>Konyvesbolt</code> nevű mappát egy
+                    kiválasztott helyen a számítógépünkön.
+                </li>
+                <li>
+                    Ezen belül alkossuk meg a <code>backend</code> nevű mappát a
+                    szükséges állományok tárolására.
+                </li>
+                <li>
+                    Nyissuk meg ebben a <code>backend</code> mappában a
+                    <code>GitBash</code> felületet, vagy húzzuk be a
+                    <code>Visual Studio Code</code> felületére és ott nyissunk
+                    egy terminált.
+                </li>
+                <li>
+                    Adjunk ki a következő utasítást a
+                    <code>GitBash</code> felületen: <br />
+                    <code class="kod-reszlet">npm init -y</code><br />
+                    Ez felépíti a <code>backend</code> mappában a szükséges <code>node</code> környezetet.
+                </li>
+                <li>
+                    Módosítsuk a kapott <code>package.json</code> állományt. A
+                    <code>package-lock.json</code> állományhoz ne nyúljunk!
+                    <button>Előtte</button> és <button>Utána</button>
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_001.png" />
+                        </div>
+                        <div class="kep">
+                            <img src="../../kepek/kep_002.png" />
+                        </div>
+                    </div>
+                    <ol>
+                        <li>
+                            <code class="magyarazo">"description": "Könyvesbolt szerveroldal"</code>
+                            - a projekt leírása.
+                        </li>
+                        <li>
+                            <code class="magyarazo">"main": "./src/server.mjs"</code>
+                            - az "indító" állomány.
+                        </li>
+                        <li>
+                            <code class="magyarazo">"scripts": { "start": "node ./src/server.mjs" }</code>
+                            - a projektet indító script.
+                        </li>
+                        <li>
+                            <code class="magyarazo">"keywords": [ "express", "mongodb" ]</code>
+                            - a projektet leíró kulcsszavak.
+                        </li>
+                        <li>
+                            <code class="magyarazo">"author": "John Doe"</code>
+                            - a projekt szerzője.
+                        </li>
+                        <li>
+                            <code class="magyarazo">"type": "module"</code> 
+                            - utalás, hogy <b>ES6</b>-t használunk <b>CommonJS</b> helyett.
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    Telepítsük a szükséges <b>npm</b> csomagokat. Ehhez adjunk
+                    ki a következő utasítást a <code>GitBash</code> felületen: <br />
+                    <code class="kod-reszlet">npm install bcrypt cloudinary cors dotenv ejs express mongoose</code>
+                </li>
+                <li>
+                    A módosult <code>package.json</code> állomány.
+                    <button>Előtte</button> és <button>Utána</button>
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_002.png" />
+                        </div>
+                        <div class="kep">
+                            <img src="../../kepek/kep_003.png" />
+                        </div>
+                    </div>
+                    <ol>
+                        <li>
+                            <code class="magyarazo">bcrypt</code> 
+                            - adatok titkosításához.
+                        </li>
+                        <li>
+                            <code class="magyarazo">cloudinary</code> 
+                            - képek tárolására alkalmas felhőalkalmazás kezeléséhez.
+                        </li>
+                        <li>
+                            <code class="magyarazo">cors</code> 
+                            - <code>CORS</code> kérések kezeléséhez.
+                        </li>
+                        <li>
+                            <code class="magyarazo">dotenv</code> 
+                            - környezeti változók kezeléséhez.
+                        </li>
+                        <li>
+                            <code class="magyarazo">ejs</code> 
+                            - <b>nézetmotor</b> (view engine) kezeléséhez.
+                        </li>
+                        <li>
+                            <code class="magyarazo">express</code> 
+                            - szerver alkalmazás létrehozásához.
+                        </li>
+                        <li>
+                            <code class="magyarazo">mongoose</code> 
+                            - <code>MongoDB</code> kezeléséhez.
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    Alakítsuk ki a szükséges mappastruktúrát a projekthez. A
+                    mappastruktúra felépítése. <button>Mappák</button>
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_004.png" />
+                        </div>
+                    </div>
+                    <ol>
+                        <li>
+                            <code class="magyarazo">controllers</code> 
+                            - <code>http metódus</code>-ok kezeléséhez.
+                        </li>
+                        <li>
+                            <code class="magyarazo">middlewares</code> 
+                            - a <code>http request</code> és <code>http response</code> közötti műveletekhez
+                            szükséges függvények kezeléséhez.
+                        </li>
+                        <li>
+                            <code class="magyarazo">models</code> 
+                            - <code>MongoDB</code> modellek kezeléséhez.
+                        </li>
+                        <li>
+                            <code class="magyarazo">public</code> 
+                            - statikus állományok kezeléséhez
+                        </li>
+                        <li>
+                            <code class="magyarazo">routes</code> 
+                            - <code>http metódus</code>-ok csoportosításához.
+                        </li>
+                        <li>
+                            <code class="magyarazo">src</code> 
+                            - szerver működéséhez szükséges állományok csoportosításához.
+                        </li>
+                        <li>
+                            <code class="magyarazo">src/routing</code> 
+                            - a <code>route</code>-okhoz szükséges állományok csoportosításához.
+                        </li>
+                        <li>
+                            <code class="magyarazo">utils</code> 
+                            - egyéb hasznos dolgokhoz (pl. adatbáziscsatlakozás) szükséges
+                            függvények kezeléséhez.
+                        </li>
+                        <li>
+                            <code class="magyarazo">views</code> 
+                            - a szerveroldali nézetek kezeléséhez.
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    Hozzuk létre a <code>.env</code> és <code>.gitignore</code> állományokat. <button>Mappák előtte</button>, <button>Mappák utána</button>, <button>.env</button> és <button>.gitignore</button>
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_004.png" />
+                        </div>
+                        <div class="kep">
+                            <img src="../../kepek/kep_005.png" />
+                        </div>
+                        <div class="kep">
+                            <img src="../../kepek/kep_006.png" />
+                        </div>
+                        <div class="kep">
+                            <img src="../../kepek/kep_007.png" />
+                        </div>
+                    </div>
+                    <ol>
+                        <li>
+                            <code class="magyarazo">.env</code>
+                            - környezeti változókat (pl. PORT számok, API-kulcsok stb.) tartalmazó állomány.
+                        </li>
+                        <li>
+                            <code class="magyarazo">.gitignore</code>
+                            - mit ne töltsünk fel a <code>GitHub</code>-ra.
+                        </li>
+                    </ol>
+                </li>
+            </ul>
+        </div>
+        <script src="../../rejt.js"></script>
+    </body>
+</html>

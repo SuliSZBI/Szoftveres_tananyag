@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="../../expressjs.svg" type="image/x-icon" />
+        <link rel="stylesheet" href="../../stilus/stilus.css" />
+        <title>Szerver alapok - utils/dbConnection.mjs</title>
+    </head>
+    <body>
+        <div id="alap-kontener">
+            <h1>
+                <a href="./szerver_alapok_01_app_mjs.html">
+                    <img
+                        src="../../angle-square-left.png"
+                        id="jobb-ikon"
+                        title="Szerver alapok - app.mjs" />
+                </a>
+                <a href="../../index.html">Szerver alapok - utils/dbConnection.mjs</a>
+                <a href="./szerver_alapok_03_dbconnect_mjs.html">
+                    <img
+                        src="../../angle-square-right.png"
+                        id="jobb-ikon"
+                        title="Szerver alapok - dbConnect.mjs" />
+                </a>
+            </h1>
+            <p>
+                Ebben a részben létrehozzuk a <code>utils</code> mappában a <code>dbConnection.mjs</code> állományt, amelyben kialakítjuk a csatlakozást a <code>Konyvtar</code> adatbázishoz. 
+            </p>
+            <ul>
+                <li>
+                    Hozzuk létre a <code>utils</code> mappában a <code>dbConnection.mjs</code> állományt. <button>Mappák előtte</button> és <button>Mappák utána</button>
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_008.png" />
+                        </div>
+                        <div class="kep">
+                            <img src="../../kepek/kep_010.png" />
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    Módosítsuk a <code>.env</code> állományt. <button>Előtte</button> és <button>Utána</button>
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_006.png" />
+                        </div>
+                        <div class="kep">
+                            <img src="../../kepek/kep_011.png" />
+                        </div>
+                    </div>
+                    <ol>
+                        <li>
+                            <code class="magyarazo">DBSTRING=saját adatbázis cím: mongodb+srv//...</code>
+                            - mindenkinek a saját csatlakozási sztringje a <code>MongoDB</code> felületről.
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    Szerkesszük a <code>dbConnection.mjs</code> állományt. <button>dbConnection.mjs</button>
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_012.png" />
+                        </div>
+                    </div>
+                    <ol>
+                        <li>
+                            <code class="magyarazo">import mongoose from 'mongoose';</code>
+                            - a <code>mongoose</code> <code>npm</code> csomag
+                            beimportálása.
+                        </li>
+                        <li>
+                            <code class="magyarazo">const dbConnect = async () => {...};</code>
+                            - a csatlakozásért felelős függvény.
+                        </li>
+                        <li>
+                            <code class="magyarazo">const connect = await mongoose.connect(process.env.DBSTRING);</code>
+                            - a csatlakozást biztosító <code>promise</code>!
+                        </li>
+                        <li>
+                            <code class="magyarazo">return connect;</code>
+                            - térjünk vissza vele, hogy máshol is fel tudjuk
+                            használni.
+                        </li>
+                        <li>
+                            <code class="magyarazo">export default dbConnect;</code>
+                            - vigyük ki a modulból <b>alapértelmezett</b> exporttal.
+                        </li>
+                    </ol>
+                </li>
+            </ul>
+        </div>
+        <script src="../../rejt.js"></script>
+    </body>
+</html>

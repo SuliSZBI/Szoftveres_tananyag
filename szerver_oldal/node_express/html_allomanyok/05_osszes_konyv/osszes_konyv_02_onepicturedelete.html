@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="../../expressjs.svg" type="image/x-icon" />
+        <link rel="stylesheet" href="../../stilus/stilus.css" />
+        <title>Összes könyv kezelése - onePictureDeleteFromCloudinary.mjs</title>
+    </head>
+    <body>
+        <div id="alap-kontener">
+            <h1>
+                <a href="./osszes_konyv_01_getAllBooks.html">
+                    <img
+                        src="../../angle-square-left.png"
+                        id="jobb-ikon"
+                        title="Összes könyv kezelése - getAllBooksControllersBackend.mjs" />
+                </a>
+                <a href="../../index.html">Összes könyv kezelése - onePictureDeleteFromCloudinary.mjs</a>
+                <a href="./osszes_konyv_03_deleteonebook.html"
+                    ><img
+                        src="../../angle-square-right.png"
+                        id="jobb-ikon"
+                        title="Összes könyv kezelése - deleteOneBookControllersBackend.mjs" />
+                </a>
+            </h1>
+            <p>
+                Ebben a részben szerkesztjük a <code>middlewares</code> mappában a <code>onePictureDeleteFromCloudinary.mjs</code> állományt, amelyben összekötjük a webszerverünket a <code>Cloudinary</code> felülettel és egy képet törölünk onnan.
+            </p>
+            <ul>
+                <li>
+                    Szerkesszük a <code>onePictureDeleteFromCloudinary.mjs</code> állományunkat.
+                    <button>onePictureDeleteFromCloudinary.mjs</button>                    
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_059.png" />
+                        </div>
+                    </div>
+                    <ol>
+                        <li>
+                            <code class="magyarazo">import dotenv from 'dotenv';</code>
+                            - a <code>dotenv</code> <code>npm</code> csomag
+                            beimportálása.
+                        </li>
+                        <li>
+                            <code class="magyarazo">dotenv.config();</code>
+                            - az értékeket a <code>.env</code> állományban
+                            keresse a <code>backend</code> mappában.
+                        </li>
+                        <li>
+                            <code class="magyarazo">import { v2 as cloudinary } from 'cloudinary';</code>
+                            - a <code>cloudinary</code> <code>npm</code> csomag
+                            beimportálása, mint <code>v2</code>.
+                        </li>
+                        <li>
+                            <code class="magyarazo">import Book from '../models/BookModelOnePicture.mjs';</code>
+                            - a <code>Book</code> modell <b>alapértelmezett</b> beimportálása.
+                        </li>
+                        <li>
+                            <code class="magyarazo">cloudinary.config({...})</code>
+                            - a <code>Cloudinary</code> oldalról vett értékek
+                            beállítása a <code>.env</code> állományból.
+                        </li>
+                        <li>
+                            <code class="magyarazo">const pictureDeleter = async (req, res, next) => {...};</code>
+                            - a <code>pictureDeleter</code> függvény létrehozása, amellyel törölhetjük a képet a felhőből.
+                        </li>
+                        <li>
+                            <code class="magyarazo">const { id } = req.params;</code>
+                            - szedjük ki az <code>id</code> tulajdonságot a
+                            <code>req.params</code>-ból.
+                        </li>
+                        <li>
+                            <code class="magyarazo">const torolKep = await Book.findById({ _id: id });</code>
+                            - keressük meg a könyvet, amelyhez tartozó képet törölni akarjuk.
+                        </li>
+                        <li>
+                            <code class="magyarazo">const kep = torolKep.kep.split('/')[7].split('.')[0];</code>
+                            - szedjük ki a kép azonosítóját.
+                        </li>
+                        <li>
+                            <code class="magyarazo">await cloudinary.uploader.destroy(kep.toString());</code>
+                            - töröljük a képet a <code>Cloudinary</code> felületéről.
+                        </li>
+                        <li>
+                            <code class="magyarazo">next();</code>
+                            - lépjünk a következő <code>middleware</code>-re.
+                        </li>
+                        <li>
+                            <code class="magyarazo">export default pictureDeleter;</code>
+                            - a <code>pictureDeleter</code> függvény
+                            <b>alapértelmezett</b> kivitele.
+                        </li>
+                    </ol>
+                </li>
+            </ul>
+        </div>
+        <script src="../../rejt.js"></script>
+    </body>
+</html>

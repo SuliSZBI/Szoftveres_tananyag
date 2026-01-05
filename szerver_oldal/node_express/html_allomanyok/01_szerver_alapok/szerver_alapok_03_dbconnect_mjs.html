@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="../../expressjs.svg" type="image/x-icon" />
+        <link rel="stylesheet" href="../../stilus/stilus.css" />
+        <title>Szerver alapok - dbConnect.mjs</title>
+    </head>
+    <body>
+        <div id="alap-kontener">
+            <h1>
+                <a href="./szerver_alapok_02_dbconnection_mjs.html">
+                    <img
+                        src="../../angle-square-left.png"
+                        id="jobb-ikon"
+                        title="Szerver alapok - utils/dbConnection.mjs" />
+                </a>
+                <a href="../../index.html">Szerver alapok - dbConnect.mjs</a>
+                <a href="./szerver_alapok_04_server_mjs.html">
+                    <img
+                        src="../../angle-square-right.png"
+                        id="jobb-ikon"
+                        title="Szerver alapok - server.mjs" />
+                </a>
+            </h1>
+            <p>
+                Ebben a részben létrehozzuk az <code>src</code> mappában a <code>dbConnect.mjs</code> állományt, amelyben összekötjük a webszervert a <code>Konyvtar</code> adatbázissal. 
+            </p>
+            <ul>
+                <li>
+                    Hozzuk létre az <code>src</code> mappában a <code>dbConnect.mjs</code> állományt. <button>Mappák előtte</button>, <button>Mappák utána</button> és <button>dbConnect.mjs</button>
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_010.png" />
+                        </div>
+                        <div class="kep">
+                            <img src="../../kepek/kep_013.png" />
+                        </div>
+                        <div class="kep">
+                            <img src="../../kepek/kep_014.png" />
+                        </div>
+                    </div>
+                    <ol>
+                        <li>
+                            <code class="magyarazo">import app, { PORT } from './app.mjs';</code>
+                            - az <code>app</code> objektum <b>alapértelmezett</b> és a <code>PORT</code> <b>nevesített</b> beimportálása.
+                        </li>
+                        <li>
+                            <code class="magyarazo">import dbConnect from '../utils/dbConnection.mjs';</code>
+                            - a csatlakozási függvény beimportálása.
+                        </li>
+                        <li>
+                            <code class="magyarazo">dbConnect()</code>
+                            - a csatlakozási <code>promise</code> meghívása.
+                        </li>
+                        <li>
+                            <code class="magyarazo">.then(() => {...});</code>
+                            - a <code>fulfilled</code>, azaz sikeres ág.
+                        </li>
+                        <li>
+                            <code class="magyarazo">app.listen(PORT, () => {
+                                console.log(`http://localhost:${PORT}/api`); });
+                            </code>
+                            - a szerver figyelőmódba állítása is itt
+                            történik meg.
+                        </li>
+                        <li>
+                            <code class="magyarazo">.catch((error) => { console.error(`A hiba oka: ${error.message}`); });</code>
+                            - a <code>rejected</code>, azaz sikertelen ág.
+                        </li>
+                    </ol>
+                </li>
+            </ul>
+        </div>
+        <script src="../../rejt.js"></script>
+    </body>
+</html>

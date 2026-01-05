@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="../../expressjs.svg" type="image/x-icon" />
+        <link rel="stylesheet" href="../../stilus/stilus.css" />
+        <title>Új könyv felvétele - newBookRouting.mjs</title>
+    </head>
+    <body>
+        <div id="alap-kontener">
+            <h1>
+                <a href="./uj_konyv_05_newbookroutesbackend.html">
+                    <img
+                        src="../../angle-square-left.png"
+                        id="jobb-ikon"
+                        title="Új könyv felvétele - newBookRoutesBackend.mjs" />
+                </a>
+                <a href="../../index.html">Új könyv felvétele - newBookRouting.mjs</a>
+                <a href="./uj_konyv_07_new_book.html"
+                    ><img
+                        src="../../angle-square-right.png"
+                        id="jobb-ikon"
+                        title="Új könyv felvétele - new_book.ejs" />
+                </a>
+            </h1>
+            <p>
+                Ebben a részben szerkesztjük az <code>src/routing</code> mappában a <code>newBookRouting.mjs</code> állományt, amelyben összekötjük a <code>/api/new-book</code> <code>route</code>-ot a logikával.
+            </p>
+            <ul>
+                <li>
+                    Szerkesszük a <code>newBookRouting.mjs</code> állományt. <button>newBookRouting.mjs</button>                    
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_044.png" />
+                        </div>
+                    </div>
+                    <ol>
+                        <li>
+                            <code class="magyarazo">import app from '../app.mjs';</code>
+                            - az <code>app</code> objektum <b>alapértelmezett</b> beimportálása.
+                        </li>
+                        <li>
+                            <code class="magyarazo">import newBookRouter from '../../routes/newBookRoutesBackend.mjs';</code>
+                            - a <code>newBookRouter</code> függvény
+                            <b>alapértelmezett</b> beimportálása.
+                        </li>
+                        <li>
+                            <code class="magyarazo">app.use('/api/new-book', newBookRouter);</code>
+                            - a <code>use</code> <code>middleware</code> segítségével a
+                            <code>/api/new-book</code> <code>route</code>-hoz csatoljuk a
+                            <code>newBookRouter</code> függvényt. <br />
+                            Azaz bármikor is küldünk egy
+                            <code>http://localhost:PORT/api/new-book</code> lekérést a
+                            webszervernek, akkor az ehhez tartozó logikával tér vissza.
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    Szerkesszük újra a <code>server.mjs</code> állományt. <button>Előtte</button> és <button>Utána</button>
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_046.png" />
+                        </div>
+                        <div class="kep">
+                            <img src="../../kepek/kep_045.png" />
+                        </div>
+                    </div>
+                    <ol>
+                        <li>
+                            <code class="magyarazo">await import('./routing/newBookRouting.mjs');</code>
+                            - importáljuk be a <code>newBookRouting.mjs</code>-ben létrehozott <code>promise</code>-t.
+                        </li>
+                        
+                    </ol>
+                </li>
+            </ul>
+        </div>
+        <script src="../../rejt.js"></script>
+    </body>
+</html>

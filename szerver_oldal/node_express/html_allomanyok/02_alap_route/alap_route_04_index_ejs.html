@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="../../expressjs.svg" type="image/x-icon" />
+        <link rel="stylesheet" href="../../stilus/stilus.css" />
+        <title>Alap route-olás - index.ejs, nav.ejs és alap.css, main.css</title>
+    </head>
+    <body>
+        <div id="alap-kontener">
+            <h1>
+                <a href="./alap_route_03_mainrouting_mjs.html">
+                    <img
+                        src="../../angle-square-left.png"
+                        id="jobb-ikon"
+                        title="Alap route-olás - mainRouting.mjs" />
+                </a>
+                <a href="../../index.html">Alap route-olás - index.ejs, nav.ejs és alap.css, main.css</a>
+                <a href="./alap_route_05_404_ejs.html"
+                    ><img
+                        src="../../angle-square-right.png"
+                        id="jobb-ikon"
+                        title="Alap route-olás - 404.ejs és 404.css"  />
+                </a>
+            </h1>
+            <p>
+                Ebben a részben a fő nézettel (view) és a stílusával fogunk foglalkozni. 
+            </p>
+            <ul>
+                <li>
+                    Szerkesszük az <code>index.ejs</code> és <code>nav.ejs</code> állományt. <button>index.ejs</button> és <button>nav.ejs</button>
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_025.png" />
+                        </div>
+                        <div class="kep">
+                            <img src="../../kepek/kep_026.png" />
+                        </div>
+                    </div>
+                    <ol>
+                        <li>
+                            <code class="magyarazo">&lt;link rel="stylesheet" href="/css/main.css" /&gt;</code>
+                            - mivel az <code>app.mjs</code> állományban beállítottuk a hivatkozást a
+                            <code>public</code> mappára, ezért minden elemére ilyen speciálisan tudunk hivatkozni.
+                        </li>
+                        <li>
+                            <code class="magyarazo">&lt;%- include('nav.ejs') %&gt;</code>
+                            - a <code>nav.ejs</code> állomány beimportálása.
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    Szerkesszük az <code>alap.css</code> és <code>main.css</code> állományt. <button>alap.css</button>, <button>main.css</button> és <button>böngésző</button>
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_027.png" />
+                        </div>
+                        <div class="kep">
+                            <img src="../../kepek/kep_028.png" />
+                        </div>
+                        <div class="kep">
+                            <img src="../../kepek/kep_029.png" />
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <script src="../../rejt.js"></script>
+    </body>
+</html>

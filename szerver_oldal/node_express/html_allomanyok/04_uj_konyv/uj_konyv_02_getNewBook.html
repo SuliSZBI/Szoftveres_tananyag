@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="../../expressjs.svg" type="image/x-icon" />
+        <link rel="stylesheet" href="../../stilus/stilus.css" />
+        <title>Új könyv felvétele - getNewBookControllersBackend.mjs</title>
+    </head>
+    <body>
+        <div id="alap-kontener">
+            <h1>
+                <a href="./uj_konyv_01_book_model.html">
+                    <img
+                        src="../../angle-square-left.png"
+                        id="jobb-ikon"
+                        title="Új könyv felvétele - BookModelOnePicture.mjs" />
+                </a>
+                <a href="../../index.html">Új könyv felvétele - getNewBookControllersBackend.mjs</a>
+                <a href="./uj_konyv_03_postNewBook.html"
+                    ><img
+                        src="../../angle-square-right.png"
+                        id="jobb-ikon"
+                        title="Új könyv felvétele - postNewBookControllersBackend.mjs" />
+                </a>
+            </h1>
+            <p>
+                Ebben a részben szerkesztjük a <code>controllers</code> mappában a <code>getNewBookControllersBackend.mjs</code> állományt, amelyben kidolgozzuk a <code>CRUD</code> <code>Read</code> művelethez tartozó logikát. Ez megfelel a <code>http GET metódus</code>-hoz tartozó logikának.
+            </p>
+            <ul>
+                <li>
+                    Szerkesszük az <code>adatok.mjs</code> állományunkat a <code>public/js</code> mappában.
+                    <button>adatok.mjs</button>                    
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_038.png" />
+                        </div>
+                    </div>
+                    <ol>
+                        <li>
+                            <code class="magyarazo">export { zsanerek, kedvezmenyek };</code>
+                            - zsanerek és kedvezmenyek <b>nevesített</b> exportja.
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    Szerkesszük a <code>getNewBookControllersBackend.mjs</code> állományunkat.
+                    <button>getNewBookControllersBackend.mjs</button>                    
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_039.png" />
+                        </div>
+                    </div>
+                        <ol>
+                        <li>
+                            <code class="magyarazo">import { zsanerek, kedvezmenyek } from '../public/js/adatok.mjs';</code>
+                            - a zsánerek és kedvezmények <b>nevesített</b> beimportálása.
+                        </li>
+                        <li>
+                            <code class="magyarazo">export const getNewBookBackend = (req, res) => {...};</code>
+                            - hozzuk létre és vigyük ki <b>nevesítve</b> a
+                            <code>http GET metódus</code>-hoz tartozó logikát (<code>Read</code> a
+                            <code>CRUD</code> műveletekből).
+                        </li>
+                        <li>
+                            <code class="magyarazo">try { res.statusCode = 200; return
+                                res.render('new_book/new_book.ejs', { zsanerek, kedvezmenyek }); }</code>
+                            - a sikeres ág a <b>200</b>-as <code>http hibakód</code>-dal. A zsánereket és
+                            kedvezményeket átadjuk a <code>new_book/new_book.ejs</code> állománynak.
+                        </li>
+                        <li>
+                            <code class="magyarazo">catch (error) { res.statusCode = 404; return res.render('404.ejs'); }</code>
+                            - a sikertelen ág a <b>404</b>-es
+                            <code>http hibakód</code>-dal.
+                        </li>
+                    </ol>
+                </li>
+            </ul>
+        </div>
+        <script src="../../rejt.js"></script>
+    </body>
+</html>

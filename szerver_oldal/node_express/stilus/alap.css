@@ -1,0 +1,29 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: var(--nodeZold);
+    font-family: var(--system);
+}
+
+h1 {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+    margin-bottom: 1em;
+}
+
+code {
+    background-color: var(--szurke);
+    color: var(--feher);
+    display: inline-block;
+    padding: 2px;
+}
+
+a {
+    color: var(--kek);
+    text-decoration: none;
+}

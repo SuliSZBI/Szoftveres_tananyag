@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="../../expressjs.svg" type="image/x-icon" />
+        <link rel="stylesheet" href="../../stilus/stilus.css" />
+        <title>Összes könyv kezelése - deleteOneBookControllersBackend.mjs</title>
+    </head>
+    <body>
+        <div id="alap-kontener">
+            <h1>
+                <a href="./osszes_konyv_02_onepicturedelete.html">
+                    <img
+                        src="../../angle-square-left.png"
+                        id="jobb-ikon"
+                        title="Összes könyv kezelése - onePictureDeleteFromCloudinary.mjs" />
+                </a>
+                <a href="../../index.html">Összes könyv kezelése - deleteOneBookControllersBackend.mjs</a>
+                <a href="./osszes_konyv_04_allbooksroutes.html"
+                    ><img
+                        src="../../angle-square-right.png"
+                        id="jobb-ikon"
+                        title="Összes könyv kezelése - allBooksRoutesBackend.mjs" />
+                </a>
+            </h1>
+            <p>
+                Ebben a részben szerkesztjük a <code>controllers</code> mappában a <code>deleteOneBookControllersBackend.mjs</code> állományt, amelyben kidolgozzuk a <code>CRUD</code> <code>Delete</code> művelethez tartozó logikát. Ez megfelel a <code>http DELETE metódus</code>-hoz tartozó logikának.
+            </p>
+            <ul>
+                <li>
+                    Szerkesszük a <code>deleteOneBookControllersBackend.mjs</code> állományunkat.
+                    <button>deleteOneBookControllersBackend.mjs</button>                    
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_060.png" />
+                        </div>
+                    </div>
+                    <ol>
+                        <li>
+                            <code class="magyarazo">import Book from '../../models/BookModelOnePicture.mjs';</code>
+                            - a <code>Book</code> modell <b>alapértelmezett</b> beimportálása.
+                        </li>
+                        <li>
+                            <code class="magyarazo">export const deleteOneBookBackend = (req, res) => {...};</code>
+                            - hozzuk létre és vigyük ki <b>nevesítve</b> a
+                            <code>http DELETE metódus</code>-hoz tartozó logikát (<code>Delete</code> a
+                            <code>CRUD</code> műveletekből).
+                        </li>
+                        <li>
+                            <code class="magyarazo">try {... res.statusCode = 204; return res.json({ msg: 'Sikeres törlés!' });}</code>
+                            - a sikeres ág a <b>200</b>-as <code>http hibakód</code>-dal. 
+                        </li>
+                        <li>
+                            <code class="magyarazo">const { id } = req.params;</code>
+                            - szedjük ki az <code>id</code> tulajdonságot a
+                            <code>req.params</code>-ból.
+                        </li>
+                        <li>
+                            <code class="magyarazo">await Book.findByIdAndDelete({ _id: id });</code>
+                            - keressük meg a könyvet és töröljük az adatbázisból.
+                        </li>
+                        <li>
+                            <code class="magyarazo">catch (error) { res.statusCode = 500; return res.json({ msg: 'Valami hiba történt!' }); }</code>
+                            - a sikertelen ág a <b>500</b>-as
+                            <code>http hibakód</code>-dal.
+                        </li>
+                    </ol>
+                </li>
+            </ul>
+        </div>
+        <script src="../../rejt.js"></script>
+    </body>
+</html>

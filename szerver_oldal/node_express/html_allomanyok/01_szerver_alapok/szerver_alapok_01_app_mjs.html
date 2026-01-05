@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="../../expressjs.svg" type="image/x-icon" />
+        <link rel="stylesheet" href="../../stilus/stilus.css" />
+        <title>Szerver alapok - app.mjs</title>
+    </head>
+    <body>
+        <div id="alap-kontener">
+            <h1>
+                <a href="./szerver_alapok.html">
+                    <img
+                        src="../../angle-square-left.png"
+                        id="jobb-ikon"
+                        title="Szerver alapok" />
+                </a>
+                <a href="../../index.html">Szerver alapok - app.mjs</a>
+                <a href="./szerver_alapok_02_dbconnection_mjs.html">
+                    <img
+                        src="../../angle-square-right.png"
+                        id="jobb-ikon"
+                        title="Szerver alapok - utils/dbConnection.mjs" />
+                </a>
+            </h1>
+            <p>
+                Ebben a részben létrehozzuk az <code>src</code> mappában az <code>app.mjs</code> állományt,
+                amelyben a webszerver létrehozásához és működéséhez szükséges kódok lesznek elhelyezve. 
+            </p>
+            <ul>
+                <li>
+                    Szerkesszük az <code>app.mjs</code> állományt. 
+                    <button>Mappák előtte</button>, <button>Mappák utána</button> és 
+                    <button>app.mjs</button>
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_005.png" />
+                        </div>
+                        <div class="kep">
+                            <img src="../../kepek/kep_008.png" />
+                        </div>
+                        <div class="kep">
+                            <img src="../../kepek/kep_009.png" />
+                        </div>
+                    </div>
+                    <ol>
+                        <li>
+                            <code class="magyarazo">import dotenv from 'dotenv';</code>
+                            - a <code>dotenv</code> <code>npm</code> csomag
+                            beimportálása.
+                        </li>
+                        <li>
+                            <code class="magyarazo">dotenv.config();</code>
+                            - a környezeti változókat a <code>.env</code> állományban keresse.
+                        </li>
+                        <li>
+                            <code class="magyarazo">import path from 'node:path';</code>
+                            - a <code>path</code> alap <code>node</code> csomag
+                            beimportálása.
+                        </li><li>
+                            <code class="magyarazo">import cors from 'cors';</code>
+                            - a <code>cors</code> <code>npm</code> csomag
+                            beimportálása.
+                        </li><li>
+                            <code class="magyarazo">import ejs from 'ejs';</code>
+                            - az <code>ejs</code> <code>npm</code> csomag
+                            beimportálása.
+                        </li><li>
+                            <code class="magyarazo">import express from 'express';</code>
+                            - az <code>express</code> <code>npm</code> csomag
+                            beimportálása.
+                        </li>
+                        <li>
+                            <code class="magyarazo">export const PORT = process.env.PORT || 3500;</code>
+                            - állítsuk be a <code>PORT</code>-számot, amit a szerver figyeljen. Aztán vigyük ki <b>nevesített</b> exporttal.
+                        </li>
+                        <li>
+                            <code class="magyarazo">const app = express();</code>
+                            - a hozzuk létre a webszervert.
+                        </li>
+                        <li>
+                            <code class="magyarazo">const dir = import.meta.dirname;</code>
+                            - a <code>./src/server.mjs</code> "indító" állományt tartalmazó mappa helye.
+                        </li>
+                        <li>
+                            <code class="magyarazo">app.use(express.static(path.resolve(dir, '..', 'public')));</code> 
+                            - a statikus állományokat (pl. képek, CSS állományok stb.) tartalmazó <code>public</code> mappa beállítása.
+                        </li>
+                        <li>
+                            <code class="magyarazo">app.set('view engine', ejs);</code>
+                            - a <b>nézetmotor</b> (view engine) beállítása.
+                        </li>
+                        <li>
+                            <code class="magyarazo">app.use(express.json());</code>
+                            - a <code>body parser</code> beállítása. Ez segít a
+                            <code>http request body</code>-jában
+                            eltárolt <code>JSON</code> információ
+                            kicsomagolásában.
+                        </li>
+                        <li>
+                            <code class="magyarazo">app.use(cors());</code> 
+                            - a <code>CORS</code> kérések kezelése.
+                        </li>
+                        <li>
+                            <code class="magyarazo">export default app;</code> 
+                            - az <code>app</code> objektum kivitele <b>alapértelmezett</b> exporttal.
+                        </li>
+                    </ol>
+                </li>
+                
+            </ul>
+        </div>
+        <script src="../../rejt.js"></script>
+    </body>
+</html>

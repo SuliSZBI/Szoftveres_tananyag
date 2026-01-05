@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="../../expressjs.svg" type="image/x-icon" />
+        <link rel="stylesheet" href="../../stilus/stilus.css" />
+        <title>Egy könyv kezelése - allBooksRoutesBackend.mjs</title>
+    </head>
+    <body>
+        <div id="alap-kontener">
+            <h1>
+                <a href="./egy_konyv_03_updateOneBook.html">
+                    <img
+                        src="../../angle-square-left.png"
+                        id="jobb-ikon"
+                        title="Egy könyv kezelése - updateOneBookControllersBackend.mjs" />
+                </a>
+                <a href="../../index.html">Egy könyv kezelése - allBooksRoutesBackend.mjs</a>
+                <a href="./egy_konyv_05_onebook.html"
+                    ><img
+                        src="../../angle-square-right.png"
+                        id="jobb-ikon"
+                        title="Egy könyv kezelése - one_Book.ejs" />
+                </a>
+            </h1>
+            <p>
+                Ebben a részben szerkesztjük a <code>routes</code> mappában a <code>allBooksRoutesBackend.mjs</code> állományt, amelyben összesítjük a <code>CRUD</code> műveletekhez tartozó logikákat.
+            </p>
+            <ul>
+                <li>
+                    Szerkesszük a <code>allBooksRoutesBackend.mjs</code> állományunkat.
+                    <button>Előtte</button> és <button>Utána</button>                     
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_061.png" />
+                        </div>
+                        <div class="kep">
+                            <img src="../../kepek/kep_079.png" />
+                        </div>
+                    </div>
+                    <ol>
+                        <li>
+                            <code class="magyarazo">import pictureUploader from '../middlewares/onePictureToCloudinary.mjs'</code>
+                            - a <code>pictureUploader</code> függvény
+                            <b>alapértelmezett</b> importja.
+                        </li>
+                        <li>
+                            <code class="magyarazo">import { getOneBookBackend } from '../controllers/allBooks/getOneBookControllersBackend.mjs';</code>
+                            - a <code>getOneBookBackend</code> függvény
+                            <b>nevesített</b> importja.
+                        </li>
+                        <li>
+                            <code class="magyarazo">import { getModositOneBookBackend } from '../controllers/allBooks/getModositOneBookControllersBackend.mjs';</code>
+                            - a <code>getModositOneBookBackend</code> függvény
+                            <b>nevesített</b> importja.
+                        </li>
+                        <li>
+                            <code class="magyarazo">import { updateOneBookBackend } from '../controllers/allBooks/updateOneBookControllersBackend.mjs';</code>
+                            - az <code>updateOneBookBackend</code> függvény
+                            <b>nevesített</b> importja.
+                        </li>
+                        <li>
+                            <code class="magyarazo">router.get('/:id', getOneBookBackend);</code>
+                            - a <code>http GET metódus</code>-hoz tartozó logika
+                            hívása a <code>getOneBookBackend</code> függvény segítségével.
+                        </li>
+                        <li>
+                            <code class="magyarazo">router.get('/modosit/:id', getModositOneBookBackend);</code>
+                            - a <code>http GET metódus</code>-hoz tartozó logika
+                            hívása a <code>getModositOneBookBackend</code> függvény segítségével.
+                        </li>
+                        <li>
+                            <code class="magyarazo">router.put('/:id', pictureUploader, pictureDeleter, updateOneBookBackend);</code>
+                            - a <code>http PUT metódus</code>-hoz tartozó logika
+                            hívása a <code>pictureUploader</code>, <code>pictureDeleter</code> <code>middleware</code> és az <code>updateOneBookBackend</code> függvény segítségével.
+                        </li>
+                    </ol>
+                </li>
+            </ul>
+        </div>
+        <script src="../../rejt.js"></script>
+    </body>
+</html>

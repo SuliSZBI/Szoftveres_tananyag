@@ -5,64 +5,76 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="shortcut icon" href="../../expressjs.svg" type="image/x-icon" />
         <link rel="stylesheet" href="../../stilus/stilus.css" />
-        <title>Összes könyv kezelése - book_kezel.mjs</title>
+        <title>Egy könyv kezelése - book_modosit.mjs</title>
     </head>
     <body>
         <div id="alap-kontener">
             <h1>
-                <a href="./osszes_konyv_06_allbooks.html">
+                <a href="./egy_konyv_06_modositbook.html">
                     <img
                         src="../../angle-square-left.png"
                         id="jobb-ikon"
-                        title="Összes könyv kezelése - all_Books.ejs" />
+                        title="Egy könyv kezelése - modosit_Book.ejs" />
                 </a>
-                <a href="../../index.html">Összes könyv kezelése - book_kezel.mjs</a>
+                <a href="../../index.html">Egy könyv kezelése - book_modosit.mjs</a>
             </h1>
             <p>
-                Ebben a részben szerkesztjük a <code>public/js</code> mappában egy könyv törléséhez szükséges <code>book_kezel.mjs</code> állományt.
+                Ebben a részben szerkesztjük a <code>public/js</code> mappában egy könyv módosításához szükséges <code>book_modosit.mjs</code> állományt.
             </p>
             <ul>
                 <li>
-                    Szerkesszük a <code>book_kezel.mjs</code> állományt. <button>book_kezel.mjs</button>                    
+                    Szerkesszük a <code>book_modosit.mjs</code> állományt. <button>book_modosit.mjs</button>                     
                     <div class="kepek">
                         <div class="kep">
-                            <img src="../../kepek/kep_071.png" />
+                            <img src="../../kepek/kep_095.png" />
                         </div>
                     </div>
                     <ol>
                         <li>
-                            <code class="magyarazo">async function torles(id) {...}</code>
-                            - egy könyv törléséért felelős <code>aszinkron</code> függvény.
+                            <code class="magyarazo">async function modosit(evet, id, regikep) {...}</code>
+                            - egy könyv módosításáért felelős <code>aszinkron</code> függvény.
+                        </li>
+                        <li>
+                            <code class="magyarazo">event.preventDefault();</code>
+                            - az adatok elküldése után ne frissüljön az oldal.
+                        </li>
+                        <li>
+                            <code class="magyarazo">if (!kep) kep = regikep;</code>
+                            - ha nem állítunk be új képet, akkor használja a régit.
                         </li>
                         <li>
                             <code class="magyarazo">const response = await fetch(`/api/books-backend/${id}`, {...});</code>
                             - a <code>fetch</code> hívása után kapott <code>promise</code>.
                         </li>
                         <li>
-                            <code class="magyarazo">method: 'DELETE',</code>
-                            - a törléshez a <code>http DELETE metódus</code>-t használjuk.
+                            <code class="magyarazo">method: 'PUT',</code>
+                            - adatokat küldünk a szervernek, tehát a <code>http PUT metódus</code>-t használjuk.
                         </li>
                         <li>
                             <code class="magyarazo">headers: { 'Content-Type': 'application/json' },</code>
                             - annak jelölése, hogy a <code>request body</code> tartalmát <code>JSON</code> formátumban fogjuk küldeni.
                         </li>
                         <li>
+                            <code class="magyarazo">body: JSON.stringify({...}),</code>
+                            - csomagoljuk is be.
+                        </li>
+                        <li>
                             <code class="magyarazo">const resp = await response.json();</code>
                             - a szervertől jövő válasz kicsomagolása, ha létezik.
                         </li>
                         <li>
-                            <code class="magyarazo">if (response.ok) { window.alert(resp.msg); window.location.href = '/api/books-backend'; }</code>
-                            - ha sikeres a törlés, akkor ezt írjuk ki és menjünk át a <code>/api/books-backend</code> <code>route</code>-ra.
+                            <code class="magyarazo">if (response.ok) { window.alert(resp.msg); window.location.href = `/api/books-backend/{id}`; }</code>
+                            - ha sikeres a módosítás, akkor ezt írjuk ki és menjünk át a <code>/api/books-backend/{id}</code> <code>route</code>-ra.
                         </li>
                         <li>
                             <code class="magyarazo">else { window.alert(resp.msg); }</code>
-                            - ha nem sikeres a feltöltés, akkor ezt írjuk ki.
+                            - ha nem sikeres a módosítás, akkor ezt írjuk ki.
                         </li>
                     </ol>
                 </li>
                 <li>
                     Az eddigi munka letölthető formátumban:
-                    <a href="../../download_allomanyok/backend_04.rar" download="backend_04.rar">backend_04.rar</a>
+                    <a href="../../download_allomanyok/backend_05.rar" download="backend_05.rar">backend_05.rar</a>
                     <br />Letöltés és kicsomagolás után a
                     <code>GitBash</code> felületen a
                     <code>backend</code> mappában adjuk ki a következő

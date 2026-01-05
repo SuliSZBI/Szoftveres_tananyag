@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="../../expressjs.svg" type="image/x-icon" />
+        <link rel="stylesheet" href="../../stilus/stilus.css" />
+        <title>Egy könyv kezelése - modosit_Book.ejs</title>
+    </head>
+    <body>
+        <div id="alap-kontener">
+            <h1>
+                <a href="./egy_konyv_05_onebook.html">
+                    <img
+                        src="../../angle-square-left.png"
+                        id="jobb-ikon"
+                        title="Egy könyv kezelése - one_book.ejs" />
+                </a>
+                <a href="../../index.html">Egy könyv kezelése - modosit_Book.ejs</a>
+                <a href="./egy_konyv_07_bookmodosit.html"
+                    ><img
+                        src="../../angle-square-right.png"
+                        id="jobb-ikon"
+                        title="Egy könyv kezelése - book_modosit.mjs" />
+                </a>
+            </h1>
+            <p>
+                Ebben a részben szerkesztjük a <code>views/modosit_book</code> mappában az összes könyv megjelenítéséhez szükséges <code>ejs</code> állományokat.
+            </p>
+            <ul>
+                <li>
+                    Szerkesszük a <code>modosit_book.ejs</code> állományt. <button>modosit_book.ejs</button> és <button>böngésző</button>                    
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_086.png" />
+                        </div>
+                        <div class="kep">
+                            <img src="../../kepek/kep_087.png" />
+                        </div>
+                    </div>
+                    <ol>
+                        <li>
+                            <code class="magyarazo">&lt;link rel="stylesheet" href="/css/new_book.css" /&gt;</code>
+                            - mivel a <code>server.mjs</code> állományban beállítottuk a hivatkozást a
+                            <code>public</code> mappára, ezért minden elemére ilyen speciálisan tudunk hivatkozni. Most a <code>new_book.css</code>-re!!!
+                        </li>
+                        <li>
+                            <code class="magyarazo">&lt;%- include('../nav.ejs') %&gt;</code>
+                            - beimportálása a <code>nav.ejs</code> állománynak.
+                        </li>
+                        <li>
+                            <code class="magyarazo">&lt;%- include('tr_text.ejs', { td: 'Cím',  id: 'cim', value: book.cim }) %&gt;</code>
+                            - beimportálása a <code>tr_text.ejs</code> állománynak, ahol átadjuk a <code>{ td: 'Cím',  id: 'cim', value: book.cim }</code> objektumot.
+                        </li>
+                        <li>
+                            <code class="magyarazo">&lt;%- include('tr_number.ejs', { td: 'Oldalszám',  id: 'oldalszam', value: book.oldalszam }) %&gt;</code>
+                            - beimportálása a <code>tr_number.ejs</code> állománynak, ahol átadjuk a <code>{ td: 'Oldalszám',  id: 'oldalszam', value: book.oldalszam }</code> objektumot.
+                        </li>
+                        <li>
+                            <code class="magyarazo">&lt;%- include('tr_textarea.ejs', { td: 'Tartalom',  id: 'tartalom', value: book.tartalom }) %&gt;</code>
+                            - beimportálása a <code>tr_textarea.ejs</code> állománynak, ahol átadjuk a <code>{ td: 'Tartalom',  id: 'tartalom', value: book.tartalom }</code> objektumot.
+                        </li>
+                        <li>
+                            <code class="magyarazo">&lt;%- include('zsaner.ejs', { zsaner: book.zsaner }) %&gt;</code>
+                            - beimportálása a <code>zsaner.ejs</code> állománynak, ahol átadjuk a <code>{ zsaner: book.zsaner }</code> objektumot.
+                        </li>
+                        <li>
+                            <code class="magyarazo">&lt;%- include('kedvezmeny.ejs', { kedvezmeny: book.kedvezmeny }) %&gt;</code>
+                            - beimportálása a <code>kedvezmeny.ejs</code> állománynak, ahol átadjuk a <code>{ kedvezmeny: book.kedvezmeny }</code> objektumot.
+                        </li>
+                        <li>
+                            <code class="magyarazo">&lt;%- include('tr_regikep.ejs', { td: 'Régi kép',  id: 'regikep', value: book.kep }) %&gt;</code>
+                            - beimportálása a <code>tr_regikep.ejs</code> állománynak, ahol átadjuk a <code>{ td: 'Régi kép',  id: 'regikep', value: book.kep }</code> objektumot.
+                        </li>
+                        <li>
+                            <code class="magyarazo">&lt;%- include('tr_ujkep.ejs', { td: 'Új kép',  id: 'ujkep' }) %&gt;</code>
+                            - beimportálása a <code>tr_ujkep.ejs</code> állománynak, ahol átadjuk a <code>{ td: 'Új kép',  id: 'ujkep' }</code> objektumot.
+                        </li>
+                        <li>
+                            <code class="magyarazo">&lt;button type="submit" onclick="modosit(event, '&lt;%= book._id %&gt;', '&lt;%= book.kep %&gt;')"&gt;Módosít&lt;/button&gt;</code>
+                            - adjunk egy <code>onclick="modosit(...)"</code> eseménykezelőt a gombhoz, amivel módosítani tudjuk a könyvet.
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    Szerkesszük a <code>tr_text.ejs</code>, <code>tr_textarea.ejs</code> és <code>tr_number.ejs</code> állományokat. <button>tr_text.ejs</button>, <button>tr_textarea.ejs</button> és <button>tr_number.ejs</button>
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_088.png" />
+                        </div>
+                        <div class="kep">
+                            <img src="../../kepek/kep_089.png" />
+                        </div>
+                        <div class="kep">
+                            <img src="../../kepek/kep_090.png" />
+                        </div>
+                    </div>
+                    <ol>
+                        <li>
+                            <code class="magyarazo">&lt;td&gt;&lt;%= td %&gt;:&lt;/td&gt;</code>
+                            - a <code>modosit_book.ejs</code>-től kapott objektumból kivesszük a <code>td</code> értéket.
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    Szerkesszük a <code>zsaner.ejs</code> és <code>kedvezmeny.ejs</code> állományokat. <button>zsaner.ejs</button> és <button>kedvezmeny.ejs</button>
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_091.png" />
+                        </div>
+                        <div class="kep">
+                            <img src="../../kepek/kep_092.png" />
+                        </div>
+                    </div>
+                    <ol>
+                        <li>
+                            <code class="magyarazo">zsaner</code>
+                            - a <code>modosit_book.ejs</code>-től kapott objektumból kivett érték.
+                        </li>
+                        <li>
+                            <code class="magyarazo">zsanerek</code>
+                            - a <code>getModositOneBookControllersBackend.mjs</code>-től kapott objektumból kivett érték.
+                        </li>
+                        <li>
+                            <code class="magyarazo">kedvezmeny</code>
+                            - a <code>modosit_book.ejs</code>-től kapott objektumból kivett érték.
+                        </li>
+                        <li>
+                            <code class="magyarazo">kedvezmenyek</code>
+                            - a <code>getModositOneBookControllersBackend.mjs</code>-től kapott objektumból kivett érték.
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    Szerkesszük a <code>tr_regikep.ejs</code> és <code>tr_ujkep.ejs</code> állományokat. <button>tr_regikep.ejs</button> és <button>tr_ujkep.ejs</button>
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_093.png" />
+                        </div>
+                        <div class="kep">
+                            <img src="../../kepek/kep_094.png" />
+                        </div>
+                    </div>
+                    <ol>
+                        <li>
+                            <code class="magyarazo">&lt;td&gt;&lt;%= td %&gt;:&lt;/td&gt;</code>
+                            - a <code>modosit_book.ejs</code>-től kapott objektumból kivesszük a <code>td</code> értéket.
+                        </li>
+                    </ol>
+                </li>
+            </ul>
+        </div>
+        <script src="../../rejt.js"></script>
+    </body>
+</html>

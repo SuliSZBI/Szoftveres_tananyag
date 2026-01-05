@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="../../expressjs.svg" type="image/x-icon" />
+        <link rel="stylesheet" href="../../stilus/stilus.css" />
+        <title>Egy könyv kezelése - updateOneBookControllersBackend.mjs</title>
+    </head>
+    <body>
+        <div id="alap-kontener">
+            <h1>
+                <a href="./egy_konyv_02_getModositOneBook.html">
+                    <img
+                        src="../../angle-square-left.png"
+                        id="jobb-ikon"
+                        title="Egy könyv kezelése - getModositOneBookControllersBackend.mjs" />
+                </a>
+                <a href="../../index.html">Egy könyv kezelése - updateOneBookControllersBackend.mjs</a>
+                <a href="./egy_konyv_04_allbooksroutes.html"
+                    ><img
+                        src="../../angle-square-right.png"
+                        id="jobb-ikon"
+                        title="Egy könyv kezelése - allBooksRoutesBackend.mjs" />
+                </a>
+            </h1>
+            <p>
+                Ebben a részben szerkesztjük a <code>controllers</code> mappában a <code>updateOneBookControllersBackend.mjs</code> állományt, amelyben kidolgozzuk a <code>CRUD</code> <code>Update</code> művelethez tartozó logikát. Ez megfelel a <code>http PUT metódus</code>-hoz tartozó logikának.
+            </p>
+            <ul>
+                <li>
+                    Szerkesszük a <code>updateOneBookControllersBackend.mjs</code> állományunkat.
+                    <button>updateOneBookControllersBackend.mjs</button>                    
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_078.png" />
+                        </div>
+                    </div>
+                        <ol>
+                        <li>
+                            <code class="magyarazo">import Book from '../../models/BookModelOnePicture.mjs';</code>
+                            - a <code>Book</code> modell <b>alapértelmezett</b> beimportálása.
+                        </li>
+                        <li>
+                            <code class="magyarazo">export const updateOneBookBackend = (req, res) => {...};</code>
+                            - hozzuk létre és vigyük ki <b>nevesítve</b> a
+                            <code>http PUT metódus</code>-hoz tartozó logikát (<code>Update</code> a
+                            <code>CRUD</code> műveletekből).
+                        </li>
+                        <li>
+                            <code class="magyarazo">try {... res.statusCode = 200; return res.json({ msg: 'Sikeres módosítás!' }); }</code>
+                            - a sikeres ág a <b>200</b>-as <code>http hibakód</code>-dal. A <code>book</code>-t, szerzőket, zsánereket és kedvezményeket átadjuk a <code>modositott_book/modositott_book.ejs</code> állománynak.
+                        </li>
+                        <li>
+                            <code class="magyarazo">const { id } = req.params;</code>
+                            - szedjük ki az <code>id</code> tulajdonságot a
+                            <code>req.params</code>-ból.
+                        </li>
+                        <li>
+                            <code class="magyarazo">const {...} = req.body;</code>
+                            - szedjük ki a tulajdonságokat a <code>req.body</code>-ból.
+                        </li>
+                        <li>
+                            <code class="magyarazo">const irok = szerzok.split(',');</code>
+                            - a <code>szerzo</code>-ket szedjem szét egy tömbbe.
+                        </li>
+                        <li>
+                            <code class="magyarazo">await Book.findByIdAndUpdate({ _id: id }, {...})</code>
+                            - frissítsük az adott könyvet a kapott értékekkel.
+                        </li>
+                        <li>
+                            <code class="magyarazo">catch (error) { res.statusCode = 500; return res.json({ msg: 'Valami hiba történt!' }); }</code>
+                            - a sikertelen ág a <b>500</b>-as
+                            <code>http hibakód</code>-dal.
+                        </li>
+                    </ol>
+                </li>
+            </ul>
+        </div>
+        <script src="../../rejt.js"></script>
+    </body>
+</html>

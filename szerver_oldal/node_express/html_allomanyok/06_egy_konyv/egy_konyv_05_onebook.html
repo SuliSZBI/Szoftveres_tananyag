@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="../../expressjs.svg" type="image/x-icon" />
+        <link rel="stylesheet" href="../../stilus/stilus.css" />
+        <title>Egy könyv kezelése - one_Book.ejs</title>
+    </head>
+    <body>
+        <div id="alap-kontener">
+            <h1>
+                <a href="./egy_konyv_04_allbooksroutes.html">
+                    <img
+                        src="../../angle-square-left.png"
+                        id="jobb-ikon"
+                        title="Egy könyv kezelése - allBooksRoutesBackend.mjs" />
+                </a>
+                <a href="../../index.html">Egy könyv kezelése - one_Book.ejs</a>
+                <a href="./egy_konyv_06_modositbook.html"
+                    ><img
+                        src="../../angle-square-right.png"
+                        id="jobb-ikon"
+                        title="Egy könyv kezelése - modosit_Book.ejs" />
+                </a>
+            </h1>
+            <p>
+                Ebben a részben szerkesztjük az <code>views/one_book</code> mappában az összes könyv megjelenítéséhez szükséges <code>ejs</code> állományokat.
+            </p>
+            <ul>
+                <li>
+                    Szerkesszük az <code>one_book.ejs</code> állományt. <button>one_book.ejs</button> és <button>böngésző</button>                    
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_080.png" />
+                        </div>
+                        <div class="kep">
+                            <img src="../../kepek/kep_081.png" />
+                        </div>
+                    </div>
+                    <ol>
+                        <li>
+                            <code class="magyarazo">&lt;link rel="stylesheet" href="/css/one_book.css" /&gt;</code>
+                            - mivel a <code>server.mjs</code> állományban beállítottuk a hivatkozást a
+                            <code>public</code> mappára, ezért minden elemére ilyen speciálisan tudunk hivatkozni.
+                        </li>
+                        <li>
+                            <code class="magyarazo">&lt;%- include('../nav.ejs') %&gt;</code>
+                            - beimportálása a <code>nav.ejs</code> állománynak.
+                        </li>
+                        <li>
+                            <code class="magyarazo">&lt;%- include('tr_elem.ejs', { td: 'Cím', targy: book.cim }) %&gt;</code>
+                            - beimportálása a <code>tr_elem.ejs</code> állománynak, ahol átadjuk a <code>{ td: 'Cím', targy: book.cim }</code> objektumot.
+                        </li>
+                        <li>
+                            <code class="magyarazo">&lt;%- include('tr_kep.ejs', { td: 'Kép', targy: book }) %&gt;</code>
+                            - beimportálása a <code>tr_kep.ejs</code> állománynak, ahol átadjuk a <code>{ td: 'Kép', targy: book }</code> objektumot.
+                        </li>
+                        <li>
+                            <code class="magyarazo">&lt;%- include('szerzok.ejs', { td: 'Szerzők', targy: book }) %&gt;</code>
+                            - beimportálása a <code>szerzok.ejs</code> állománynak, ahol átadjuk a <code>{ td: 'Szerzők', targy: book }</code> objektumot.
+                        </li>
+                        <li>
+                            <code class="magyarazo">&lt;a class="modosit" href="/api/books-backend/modosit&lt;%= book._id %&gt;"&gt;Módosítás&lt;/a&gt;</code>
+                            - elemenkénti lekérése a könyveknek.
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    Szerkesszük a <code>tr_elem.ejs</code> és <code>tr_kep.ejs</code> állományokat. <button>tr_elem.ejs</button> és <button>tr_kep.ejs</button>
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_082.png" />
+                        </div>
+                        <div class="kep">
+                            <img src="../../kepek/kep_083.png" />
+                        </div>
+                    </div>
+                    <ol>
+                        <li>
+                            <code class="magyarazo">&lt;td&gt;&lt;%= td %&gt;:&lt;/td&gt;</code>
+                            - a <code>one_book.ejs</code>-től kapott objektumból kivesszük a <code>td</code> értéket.
+                        </li>
+                        <li>
+                            <code class="magyarazo">&lt;img src="&lt;%= targy.kep %&gt;" /&gt;</code>
+                            - a <code>one_book.ejs</code>-től kapott objektumból kivesszük az <code>targy.kep</code> értéket.
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    Szerkesszük a <code>szerzok.ejs</code> állományt. <button>szerzok.ejs</button>
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_084.png" />
+                        </div>
+                    </div>
+                    <ol>
+                        <li>
+                            <code class="magyarazo">targy.szerzok</code>
+                            - a <code>one_book.ejs</code>-től kapott objektumból kivesszük a <code>targy.szerzok</code> értéket.
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    Szerkesszük az
+                    <code>one_book.css</code> állományt.
+                    <button>one_book.css 1</button>
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_085.png" />
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <script src="../../rejt.js"></script>
+    </body>
+</html>

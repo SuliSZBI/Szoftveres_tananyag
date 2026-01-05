@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="../../expressjs.svg" type="image/x-icon" />
+        <link rel="stylesheet" href="../../stilus/stilus.css" />
+        <title>Egy könyv kezelése - getModositOneBookControllersBackend.mjs</title>
+    </head>
+    <body>
+        <div id="alap-kontener">
+            <h1>
+                <a href="./egy_konyv_01_getOneBook.html">
+                    <img
+                        src="../../angle-square-left.png"
+                        id="jobb-ikon"
+                        title="Egy könyv kezelése - getOneBookControllersBackend.mjs" />
+                </a>
+                <a href="../../index.html">Egy könyv kezelése - getModositOneBookControllersBackend.mjs</a>
+                <a href="./egy_konyv_03_updateOneBook.html"
+                    ><img
+                        src="../../angle-square-right.png"
+                        id="jobb-ikon"
+                        title="Egy könyv kezelése - updateOneBookControllersBackend.mjs" />
+                </a>
+            </h1>
+            <p>
+                Ebben a részben szerkesztjük a <code>controllers</code> mappában a <code>getModositOneBookControllersBackend.mjs</code> állományt, amelyben kidolgozzuk a <code>CRUD</code> <code>Read</code> művelethez tartozó logikát. Ez megfelel a <code>http GET metódus</code>-hoz tartozó logikának.
+            </p>
+            <ul>
+                <li>
+                    Szerkesszük a <code>getModositOneBookControllersBackend.mjs</code> állományunkat.
+                    <button>getModositOneBookControllersBackend.mjs</button>                    
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_077.png" />
+                        </div>
+                    </div>
+                        <ol>
+                        <li>
+                            <code class="magyarazo">import Book from '../../models/BookModelOnePicture.mjs';</code>
+                            - a <code>Book</code> modell <b>alapértelmezett</b> beimportálása.
+                        </li>
+                        <li>
+                            <code class="magyarazo">import { zsanerek, kedvezmenyek } from '../public/js/adatok.mjs';</code>
+                            - a zsánerek és kedvezmények <b>nevesített</b> beimportálása.
+                        </li>
+                        <li>
+                            <code class="magyarazo">export const getModositOneBookBackend = (req, res) => {...};</code>
+                            - hozzuk létre és vigyük ki <b>nevesítve</b> a
+                            <code>http GET metódus</code>-hoz tartozó logikát (<code>Read</code> a
+                            <code>CRUD</code> műveletekből).
+                        </li>
+                        <li>
+                            <code class="magyarazo">try {... res.statusCode = 200; return res.render('modosit_book/modosit_book.ejs', { book, szerzok, zsanerek, kedvezmenyek });}</code>
+                            - a sikeres ág a <b>200</b>-as <code>http hibakód</code>-dal. A <code>book</code>-t, szerzőket, zsánereket és kedvezményeket átadjuk a <code>modositott_book/modositott_book.ejs</code> állománynak.
+                        </li>
+                        <li>
+                            <code class="magyarazo">const { id } = req.params;</code>
+                            - szedjük ki az <code>id</code> tulajdonságot a
+                            <code>req.params</code>-ból.
+                        </li>
+                        <li>
+                            <code class="magyarazo">const book = await Book.findById({ _id: id });</code>
+                            - keressük meg a könyvet és töröljük az adatbázisból.
+                        </li>
+                        <li>
+                            <code class="magyarazo">const szerzok = book.szerzok.toString();</code>
+                            - az adatbázisban tárolt <code>book.szerzok</code> tömbből csináljunk <code>,</code>-vel tagolt sztringet.
+                        </li>
+                        <li>
+                            <code class="magyarazo">catch (error) { res.statusCode = 404; return res.render('404.ejs'); }</code>
+                            - a sikertelen ág a <b>404</b>-es
+                            <code>http hibakód</code>-dal.
+                        </li>
+                    </ol>
+                </li>
+            </ul>
+        </div>
+        <script src="../../rejt.js"></script>
+    </body>
+</html>

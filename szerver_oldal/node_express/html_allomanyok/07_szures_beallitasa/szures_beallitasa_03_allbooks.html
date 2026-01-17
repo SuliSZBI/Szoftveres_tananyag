@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="../../expressjs.svg" type="image/x-icon" />
+        <link rel="stylesheet" href="../../stilus/stilus.css" />
+        <title>Szűrés beállítása - all_Books.ejs</title>
+    </head>
+    <body>
+        <div id="alap-kontener">
+            <h1>
+                <a href="./szures_beallitasa_02_allbooksroutes.html">
+                    <img
+                        src="../../angle-square-left.png"
+                        id="jobb-ikon"
+                        title="Szűrés beállítása - allBooksRoutesBackend.mjs" />
+                </a>
+                <a href="../../index.html">Szűrés beállítása - all_Books.ejs</a>
+                <a href="./szures_beallitasa_04_book_szures.html"
+                    ><img
+                        src="../../angle-square-right.png"
+                        id="jobb-ikon"
+                        title="Szűrés beállítása - book_szures.mjs" />
+                </a>
+            </h1>
+            <p>
+                Ebben a részben szerkesztjük az <code>views/all_books</code> mappában a könyvek szűréséhez szükséges <code>ejs</code> állományokat.
+            </p>
+            <ul>
+                <li>
+                    Szerkesszük az <code>all_books.ejs</code> állományt. <button>all_books.ejs</button> és <button>böngésző</button>                    
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_100.png" />
+                        </div>
+                        <div class="kep">
+                            <img src="../../kepek/kep_101.png" />
+                        </div>
+                    </div>
+                    <ol>
+                        <li>
+                            <code class="magyarazo">&lt;%- include('./szuro.ejs') %&gt;</code>
+                            - beimportálása a <code>szuro.ejs</code> állománynak.
+                        </li>
+                        <li>
+                            <code class="magyarazo">&lt;script src="/js/book_checks.mjs"&gt;&lt;/script&gt;</code>
+                            - hivatkozás beállítása a <code>/js/book_checks.mjs</code> állományra.
+                        </li>
+                        <li>
+                            <code class="magyarazo">&lt;script src="/js/book_szures.mjs"&gt;&lt;/script&gt;</code>
+                            - hivatkozás beállítása a <code>/js/book_szures.mjs</code> állományra.
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    Szerkesszük a <code>szuro.ejs</code> állományt. <button>szuro.ejs</button>
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_102.png" />
+                        </div>
+                    </div>
+                    <ol>
+                        <li>
+                            <code class="magyarazo">&lt;%- include('./zsanerek.ejs') %&gt;</code>
+                            - beimportálása a <code>zsanerek.ejs</code> állománynak.
+                        </li>
+                        <li>
+                            <code class="magyarazo">&lt;%- include('./kedvezmenyek.ejs') %&gt;</code>
+                            - beimportálása a <code>kedvezmenyek.ejs</code> állománynak.
+                        </li>
+                        <li>
+                            <code class="magyarazo">&lt;button onclick="leszures(event)"&gt;Szűrés&lt;/button&gt;</code>
+                            - helyezzünk el egy <code>onclick="leszures(...)"</code> eseménykezelőt a gombra..
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    Szerkesszük a <code>zsanerek.ejs</code> és <code>kedvezmenyek.ejs</code> állományokat. <button>zsanerek.ejs</button> és <button>kedvezmenyek.ejs</button>
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_103.png" />
+                        </div>
+                        <div class="kep">
+                            <img src="../../kepek/kep_104.png" />
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <script src="../../rejt.js"></script>
+    </body>
+</html>

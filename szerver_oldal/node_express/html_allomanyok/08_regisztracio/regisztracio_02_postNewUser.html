@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="../../expressjs.svg" type="image/x-icon" />
+        <link rel="stylesheet" href="../../stilus/stilus.css" />
+        <title>Regisztráció kezelése - registerControllers.mjs</title>
+    </head>
+    <body>
+        <div id="alap-kontener">
+            <h1>
+                <a href="./regisztracio_01_user_model.html">
+                    <img
+                        src="../../angle-square-left.png"
+                        id="jobb-ikon"
+                        title="Regisztráció kezelése - UserModel.mjs" />
+                </a>
+                <a href="../../index.html">Regisztráció kezelése - registerControllers.mjs</a>
+                <a href="./regisztracio_03_registerroutes.html"
+                    ><img
+                        src="../../angle-square-right.png"
+                        id="jobb-ikon"
+                        title="Regisztráció kezelése - userRoutes.mjs" />
+                </a>
+            </h1>
+            <p>
+                Ebben a részben szerkesztjük a <code>controllers/users</code> mappában a <code>registerControllers.mjs</code> állományt, amelyben kidolgozzuk a <code>CRUD</code> <code>Creat</code> művelethez tartozó logikát. Ez megfelel a <code>http POST metódus</code>-hoz tartozó logikának.
+            </p>
+            <ul>
+                <li>
+                    Szerkesszük a <code>registerControllers.mjs</code> állományunkat.
+                    <button>registerControllers.mjs</button>                    
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_109.png" />
+                        </div>
+                    </div>
+                    <ol>
+                        <li>
+                            <code class="magyarazo">import bcrypt from 'bcrypt';</code>
+                            - a <code>dotenv</code> <code>npm</code> csomag beimportálása.
+                        </li>
+                        <li>
+                            <code class="magyarazo">import User from '../models/UserModel.mjs';</code>
+                            - a <code>User</code> modell <b>alapértelmezett</b> beimportálása.
+                        </li>
+                        <li>
+                            <code class="magyarazo">export const registerCustomer = (req, res) => {...};</code>
+                            - hozzuk létre és vigyük ki <b>nevesítve</b> a
+                            <code>http POST metódus</code>-hoz tartozó logikát (<code>Creat</code> a
+                            <code>CRUD</code> műveletekből).
+                        </li>
+                         <li>
+                            <code class="magyarazo">try {... res.statusCode = 201; return res.json({ msg: 'Sikeres regisztráció!' });}</code>
+                            - a sikeres ág a <b>201</b>-es <code>http hibakód</code>-dal.
+                        </li>
+                        <li>
+                            <code class="magyarazo">const {...} = req.body;</code>
+                            - a <code>req.body</code> dekonstrukciója.
+                        </li>
+                        <li>
+                            <code class="magyarazo">const userKeres = await User.findOne({ email: email });</code>
+                            - nézzük meg, hogy az adott e-mail címmel van a felhasználó.
+                        </li>
+                        <li>
+                            <code class="magyarazo">if (userKeres) return res.status(403).json({ msg: 'Ezekkel az adatokkal már létezik felhasználó!' });</code>
+                            - ha már van, akkor ezt jelezzük a <b>403</b>-as <code>http hibakód</code>-dal. 
+                        </li>
+                        <li>
+                            <code class="magyarazo">const salt = bcrypt.genSaltSync(10);</code>
+                            - hozzuk létre a tikosítás "kulcsát".
+                        </li>
+                        <li>
+                            <code class="magyarazo">const hashedJelszo = bcrypt.hashSync(jelszo, salt);</code>
+                            - titkosítsuk a jelszót.
+                        </li>
+                        <li>
+                            <code class="magyarazo">const newUser = new User({...});</code>
+                            - hozzunk létre egy új <code>User</code> példányt a
+                            <code>req.body</code>-ból kapott értékekből. <br />
+                            Figyeljünk a <code>jelszo: hashedJelszo</code> értékre!
+                        </li>
+                        <li>
+                            <code class="magyarazo">await newUser.save();</code>
+                            - mentsük el az adatbázisba.
+                        </li>
+                        <li>
+                            <code class="magyarazo">catch (error) { res.statusCode = 500; return
+                                res.json({ msg: 'Valami hiba történt!' + error.message });}</code
+                            >
+                            - a sikertelen ág a <b>500</b>-as <code>http hibakód</code>-dal.
+                        </li>
+                    </ol>
+                </li>
+            </ul>
+        </div>
+        <script src="../../rejt.js"></script>
+    </body>
+</html>

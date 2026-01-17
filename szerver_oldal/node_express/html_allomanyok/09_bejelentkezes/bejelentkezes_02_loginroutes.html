@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="../../expressjs.svg" type="image/x-icon" />
+        <link rel="stylesheet" href="../../stilus/stilus.css" />
+        <title>Bejelentkezés kezelése - userRoutes.mjs</title>
+    </head>
+    <body>
+        <div id="alap-kontener">
+            <h1>
+                <a href="./bejelentkezes_01_loginUser.html">
+                    <img
+                        src="../../angle-square-left.png"
+                        id="jobb-ikon"
+                        title="Bejelentkezés kezelése - loginControllers.mjs" />
+                </a>
+                <a href="../../index.html">Bejelentkezés kezelése - userRoutes.mjs</a>
+            </h1>
+            <p>
+                Ebben a részben szerkesztjük a <code>routes</code> mappában a <code>userRoutes.mjs</code> állományt, amelyben összesítjük a <code>CRUD</code> műveletekhez tartozó logikákat.
+            </p>
+            <ul>
+                <li>
+                    Szerkesszük a <code>userRoutes.mjs</code> állományunkat.
+                    <button>Előtte</button> és <button>Utána</button>                    
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_110.png" />
+                        </div>
+                        <div class="kep">
+                            <img src="../../kepek/kep_115.png" />
+                        </div>
+                    </div>
+                    <ol>
+                        <li>
+                            <code class="magyarazo">import { loginCustomer } from '../controllers/users/loginControllers.mjs';</code>
+                            - a <code>loginCustomer</code> függvény
+                            <b>nevesített</b> importja.
+                        </li>
+                        <li>
+                            <code class="magyarazo">router.post('/login', loginCustomer);</code>
+                            - a <code>http POST metódus</code>-hoz tartozó logika
+                            hívása a <code>loginCustomer</code> függvény segítségével.
+                        </li>
+                        <li>
+                            Az eddigi munka letölthető formátumban:
+                            <a href="../../download_allomanyok/backend_07.rar" download="backend_07.rar">backend_07.rar</a>
+                            <br />Letöltés és kicsomagolás után a
+                            <code>GitBash</code> felületen a
+                            <code>backend</code> mappában adjuk ki a következő
+                            utasítást: <br />
+                            <code class="kod-reszlet">npm install</code>
+                        </li>
+                <li>
+                    A webszerver futtatásához adjuk ki a következő utasítást a <code>GitBash</code> felületen: <br /> 
+                    <code class="kod-reszlet">node --watch ./src/server.mjs</code>
+                </li>
+                    </ol>
+                </li>
+            </ul>
+        </div>
+        <script src="../../rejt.js"></script>
+    </body>
+</html>

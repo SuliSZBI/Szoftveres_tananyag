@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="../../expressjs.svg" type="image/x-icon" />
+        <link rel="stylesheet" href="../../stilus/stilus.css" />
+        <title>Szűrés beállítása - getAllSzurtBooksControllersBackend.mjs</title>
+    </head>
+    <body>
+        <div id="alap-kontener">
+            <h1>
+                <a href="./szures_beallitasa.html">
+                    <img
+                        src="../../angle-square-left.png"
+                        id="jobb-ikon"
+                        title="Szűrés beállítása - bevezetés" />
+                </a>
+                <a href="../../index.html">Szűrés beállítása - getAllSzurtBooksControllersBackend.mjs</a>
+                <a href="./szures_beallitasa_02_allbooksroutes.html"
+                    ><img
+                        src="../../angle-square-right.png"
+                        id="jobb-ikon"
+                        title="Szűrés beállítása - allBooksRoutesBackend.mjs" />
+                </a>
+            </h1>
+            <p>
+                Ebben a részben szerkesztjük a <code>controllers/allbooks</code> mappában a <code>getAllSzurtBooksControllersBackend.mjs</code> állományt, amelyben kidolgozzuk a <code>CRUD</code> <code>Read</code> művelethez tartozó logikát. Ez megfelel a <code>http GET metódus</code>-hoz tartozó logikának.
+            </p>
+            <ul>
+                <li>
+                    Szerkesszük a <code>getAllSzurtBooksControllersBackend.mjs</code> állományunkat.
+                    <button>getAllSzurtBooksControllersBackend.mjs</button>                    
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_098.png" />
+                        </div>
+                    </div>
+                        <ol>
+                        <li>
+                            <code class="magyarazo">import Book from '../../models/BookModelOnePicture.mjs';</code>
+                            - a <code>Book</code> modell <b>alapértelmezett</b> beimportálása.
+                        </li>
+                        <li>
+                            <code class="magyarazo">import { zsanerek, kedvezmenyek } from '../public/js/adatok.mjs';</code>
+                            - a zsánerek és kedvezmények <b>nevesített</b> beimportálása.
+                        </li>
+                        <li>
+                            <code class="magyarazo">export const getAllSzurtBooksBackend = (req, res) => {...};</code>
+                            - hozzuk létre és vigyük ki <b>nevesítve</b> a
+                            <code>http GET metódus</code>-hoz tartozó logikát (<code>Read</code> a
+                            <code>CRUD</code> műveletekből).
+                        </li>
+                        <li>
+                            <code class="magyarazo">const { id } = req.params;</code>
+                            - szedjük ki az <code>id</code> tulajdonságot a
+                            <code>req.params</code>-ból.
+                        </li>
+                        <li>
+                            <code class="magyarazo">const szures = JSON.parse(id);</code>
+                            - az <code>id</code> JSON tartalmából nyerjük ki a JavaScript tartalmat a <code>JSON.parse()</code> metódus segítségével.
+                        </li>
+                        <li>
+                            <code class="magyarazo">try {
+                            const books = await Book.find({});
+                            let zsanerekSz = szures.szuresek[0];
+                            let kedvezmenyekSz = szures.szuresek[1];
+                            let booksZs = books.filter(elem => zsanerekSz.indexOf(elem.zsaner) > -1);
+                            let booksZsK = booksZs.filter(elem => kedvezmenyekSz.indexOf(elem.kedvezmeny) > -1);
+                            
+                            res.statusCode = 200;
+                            return res.render('all_books/all_books.ejs', { books: booksZsK, zsanerek, zsanerekSz, kedvezmenyek, kedvezmenyekSz });}</code>
+                            - a sikeres ág a <b>200</b>-as <code>http hibakód</code>-dal. Az <code>id</code>-ből nyert szűrésfeltételekkel kapott könyveket, zsánereket és
+                            kedvezményeket átadjuk a <code>all_books/all_books.ejs</code> állománynak. 
+                        </li>
+                        <li>
+                            <code class="magyarazo">catch (error) { res.statusCode = 404; return res.render('404.ejs'); }</code>
+                            - a sikertelen ág a <b>404</b>-es
+                            <code>http hibakód</code>-dal.
+                        </li>
+                    </ol>
+                </li>
+            </ul>
+        </div>
+        <script src="../../rejt.js"></script>
+    </body>
+</html>

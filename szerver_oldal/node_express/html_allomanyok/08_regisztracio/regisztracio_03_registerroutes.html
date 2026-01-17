@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="../../expressjs.svg" type="image/x-icon" />
+        <link rel="stylesheet" href="../../stilus/stilus.css" />
+        <title>Regisztráció kezelése - userRoutes.mjs</title>
+    </head>
+    <body>
+        <div id="alap-kontener">
+            <h1>
+                <a href="./regisztracio_02_postNewUser.html">
+                    <img
+                        src="../../angle-square-left.png"
+                        id="jobb-ikon"
+                        title="Regisztráció kezelése - registerControllers.mjs" />
+                </a>
+                <a href="../../index.html">Regisztráció kezelése - userRoutes.mjs</a>
+                <a href="./regisztracio_04_userrouting.html"
+                    ><img
+                        src="../../angle-square-right.png"
+                        id="jobb-ikon"
+                        title="Új könyv felvétele - userRouting.mjs" />
+                </a>
+            </h1>
+            <p>
+                Ebben a részben szerkesztjük a <code>routes</code> mappában a <code>userRoutes.mjs</code> állományt, amelyben összesítjük a <code>CRUD</code> műveletekhez tartozó logikákat.
+            </p>
+            <ul>
+                <li>
+                    Szerkesszük a <code>userRoutes.mjs</code> állományunkat.
+                    <button>userRoutes.mjs</button>                    
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_110.png" />
+                        </div>
+                    </div>
+                    <ol>
+                        <li>
+                            <code class="magyarazo">import express from 'express';</code>
+                            - az <code>express</code> <code>npm</code> csomag
+                            beimportálása.
+                        </li>
+                        <li>
+                            <code class="magyarazo">import { registerCustomer } from '../controllers/users/registerControllers.mjs';</code>
+                            - a <code>registerCustomer</code> függvény
+                            <b>nevesített</b> importja.
+                        </li>
+                        <li>
+                            <code class="magyarazo">const router = express.Router();</code>
+                            - mivel a webszerver jelölésére az <code>app</code> csak a
+                            <code>server.mjs</code> állományban használható,
+                            ezért itt már csak a <code>router</code> szóval hivatkozhatunk rá, amit az <code>express</code> objektum
+                            <code>Router()</code> függvényével tehetünk meg.
+                        </li>
+                        <li>
+                            <code class="magyarazo">router.post('/register', registerCustomer);</code>
+                            - a <code>http POST metódus</code>-hoz tartozó logika
+                            hívása a <code>registerCustomer</code> függvény segítségével.
+                        </li>
+                        <li>
+                            <code class="magyarazo"
+                                >export default router;</code
+                            >
+                            - a szerver hívás <b>alapértelmezett</b> kivitele.
+                        </li>
+                    </ol>
+                </li>
+            </ul>
+        </div>
+        <script src="../../rejt.js"></script>
+    </body>
+</html>

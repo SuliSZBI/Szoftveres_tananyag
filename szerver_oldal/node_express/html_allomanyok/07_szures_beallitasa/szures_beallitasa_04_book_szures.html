@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="../../expressjs.svg" type="image/x-icon" />
+        <link rel="stylesheet" href="../../stilus/stilus.css" />
+        <title>Szűrés beállítása - book_szures.mjs</title>
+    </head>
+    <body>
+        <div id="alap-kontener">
+            <h1>
+                <a href="./szures_beallitasa_03_allbooks.html">
+                    <img
+                        src="../../angle-square-left.png"
+                        id="jobb-ikon"
+                        title="Szűrés beállítása - all_Books.ejs" />
+                </a>
+                <a href="../../index.html">Szűrés beállítása - book_szures.mjs</a>
+            </h1>
+            <p>
+                Ebben a részben szerkesztjük az <code>public/js</code> mappában a könyvek szűréséhez szükséges <code>mjs</code> állományokat.
+            </p>
+            <ul>
+                <li>
+                    Szerkesszük az <code>book_checks.mjs</code> állományt. <button>book_checks.mjs</button>                    
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_105.png" />
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    Szerkesszük a <code>book_szures.mjs</code> állományt. <button>book_szures.mjs</button>
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_106.png" />
+                        </div>
+                    </div>
+                    <ol>
+                        <li>
+                            <code class="magyarazo">async function leszures(event) {...}</code>
+                            - az új könyv létrehozásáért felelős <code>aszinkron</code> függvény.
+                        </li>
+                        <li>
+                            <code class="magyarazo">event.preventDefault();</code>
+                            - az adatok elküldése után ne frissüljön az oldal.
+                        </li>
+                        <li>
+                            <code class="magyarazo">const kuld = JSON.stringify({ szuresek });</code>
+                            - alakítsuk a <code>szuresek</code> JavaScript tömböt JSON objektummá.
+                        </li>
+                        <li>
+                            <code class="magyarazo">window.location.href = `/api/books-backend`;</code>
+                            - ha nincs szűrés, akkor menjünk át az <code>/api/books-backend</code> <code>route</code>-ra.
+                        </li>
+                        <li>
+                            <code class="magyarazo">window.location.href = `/api/books-backend/${kuld}`;</code>
+                            - ha van szűrés, akkor menjünk át az <code>/api/books-backend/${kuld}</code> <code>route</code>-ra.
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    Az eddigi munka letölthető formátumban:
+                    <a href="../../download_allomanyok/backend_06.rar" download="backend_06.rar">backend_06.rar</a>
+                    <br />Letöltés és kicsomagolás után a
+                    <code>GitBash</code> felületen a
+                    <code>backend</code> mappában adjuk ki a következő
+                    utasítást: <br />
+                    <code class="kod-reszlet">npm install</code>
+                </li>
+                <li>
+                    A webszerver futtatásához adjuk ki a következő utasítást a <code>GitBash</code> felületen: <br /> 
+                    <code class="kod-reszlet">node --watch ./src/server.mjs</code>
+                </li>
+            </ul>
+        </div>
+        <script src="../../rejt.js"></script>
+    </body>
+</html>

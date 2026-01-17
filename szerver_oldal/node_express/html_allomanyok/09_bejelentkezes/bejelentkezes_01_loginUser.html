@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="../../expressjs.svg" type="image/x-icon" />
+        <link rel="stylesheet" href="../../stilus/stilus.css" />
+        <title>Bejelentkezés kezelése - loginControllers.mjs</title>
+    </head>
+    <body>
+        <div id="alap-kontener">
+            <h1>
+                <a href="./bejelentkezes.html">
+                    <img
+                        src="../../angle-square-left.png"
+                        id="jobb-ikon"
+                        title="Bejelentkezés kezelése - bevezetés" />
+                </a>
+                <a href="../../index.html">Bejelentkezés kezelése - loginControllers.mjs</a>
+                <a href="./bejelentkezes_02_loginroutes.html"
+                    ><img
+                        src="../../angle-square-right.png"
+                        id="jobb-ikon"
+                        title="Bejelentkezés kezelése - userRoutes.mjs" />
+                </a>
+            </h1>
+            <p>
+                Ebben a részben szerkesztjük a <code>controllers/users</code> mappában a <code>loginControllers.mjs</code> állományt, amelyben kidolgozzuk a <code>CRUD</code> <code>Creat</code> művelethez tartozó logikát. Ez megfelel a <code>http POST metódus</code>-hoz tartozó logikának.
+            </p>
+            <ul>
+                <li>
+                    Szerkesszük a <code>loginControllers.mjs</code> állományunkat.
+                    <button>loginControllers.mjs</button>                    
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_114.png" />
+                        </div>
+                    </div>
+                    <ol>
+                        <li>
+                            <code class="magyarazo">import bcrypt from 'bcrypt';</code>
+                            - a <code>dotenv</code> <code>npm</code> csomag beimportálása.
+                        </li>
+                        <li>
+                            <code class="magyarazo">import User from '../models/UserModel.mjs';</code>
+                            - a <code>User</code> modell <b>alapértelmezett</b> beimportálása.
+                        </li>
+                        <li>
+                            <code class="magyarazo">export const loginCustomer = (req, res) => {...};</code>
+                            - hozzuk létre és vigyük ki <b>nevesítve</b> a
+                            <code>http POST metódus</code>-hoz tartozó logikát (<code>Creat</code> a
+                            <code>CRUD</code> műveletekből).
+                        </li>
+                         <li>
+                            <code class="magyarazo">try {... res.statusCode = 200; return res.json({ msg: 'Üdvözöljük az oldalunkon!' });}</code>
+                            - a sikeres ág a <b>200</b>-as <code>http hibakód</code>-dal.
+                        </li>
+                        <li>
+                            <code class="magyarazo">const {...} = req.body;</code>
+                            - a <code>req.body</code> dekonstrukciója.
+                        </li>
+                        <li>
+                            <code class="magyarazo">const userKeres = await User.findOne({ email: email });</code>
+                            - nézzük meg, hogy az adott e-mail címmel van a felhasználó.
+                        </li>
+                        <li>
+                            <code class="magyarazo">if (!userKeres) return res.status(401).json({ msg: 'Ezekkel az adatokkal nem létezik felhasználó!' });</code>
+                            - ha még nincs, akkor ezt jelezzük a <b>401</b>-es <code>http hibakód</code>-dal.
+                        </li>
+                        <li>
+                            <code class="magyarazo">const hasonlitJelszo = bcrypt.compareSync(jelszo, userKeres.jelszo);</code>
+                            - hasonlítsuk össze a kapott jelszót az adatbázisban tárolttal.
+                        </li>
+                        <li>
+                            <code class="magyarazo">if (!hasonlitJelszo) return res.status(403).json({ msg: 'Ezekkel az adatokkal nem léphetsz be!' });</code>
+                            - ha a kettő nem egyezik, akkor ezt jelezzük a <b>403</b>-as <code>http hibakód</code>-dal.
+                        </li>
+                        <li>
+                            <code class="magyarazo">catch (error) { res.statusCode = 500; return
+                                res.json({ msg: 'Valami hiba történt!' + error.message });}</code
+                            >
+                            - a sikertelen ág a <b>500</b>-as <code>http hibakód</code>-dal.
+                        </li>
+                    </ol>
+                </li>
+            </ul>
+        </div>
+        <script src="../../rejt.js"></script>
+    </body>
+</html>

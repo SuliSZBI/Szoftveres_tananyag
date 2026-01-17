@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="../../expressjs.svg" type="image/x-icon" />
+        <link rel="stylesheet" href="../../stilus/stilus.css" />
+        <title>Regisztráció kezelése - UserModel.mjs</title>
+    </head>
+    <body>
+        <div id="alap-kontener">
+            <h1>
+                <a href="./regisztracio.html">
+                    <img
+                        src="../../angle-square-left.png"
+                        id="jobb-ikon"
+                        title="Regisztráció kezelése - bevezetés" />
+                </a>
+                <a href="../../index.html">Regisztráció kezelése - UserModel.mjs</a>
+                <a href="./regisztracio_02_postNewUser.html"
+                    ><img
+                        src="../../angle-square-right.png"
+                        id="jobb-ikon"
+                        title="Regisztráció kezelése - registerControllers.mjs" />
+                </a>
+            </h1>
+            <p>
+                Ebben a részben létrehozzuk a <code>User</code> adatbázis modelünket.
+            </p>
+            <ul>
+                <li>
+                    Szerkesszük a <code>BookModelOnePicture.mjs</code> állományunkat.
+                    <button>BookModelOnePicture.mjs</button>                    
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_108.png" />
+                        </div>
+                    </div>
+                    <ol>
+                        <li>
+                            <code class="magyarazo">import mongoose from 'mongoose';</code>
+                            - a <code>mongoose</code> <code>npm</code> csomag
+                            beimportálása.
+                        </li>
+                        <li>
+                            <code class="magyarazo">const userSchema = new mongoose.Schema({...}, {...});</code>
+                            - a <code>MongoDB</code> adatbázishoz tartozó
+                            <b>gyűjtemény</b> (collection) felépítési sémája.
+                        </li>
+                        <li>
+                            <code class="magyarazo">{ timestamps: true }</code>
+                            - időbélyező létrehozáskor és utolsó módosításkor.
+                        </li>
+                        <li>
+                            <code class="magyarazo">const User = mongoose.model('user', userSchema);</code>
+                            - sémából létrehozott <b>modell</b>.
+                        </li>
+                        <li>
+                            <code class="magyarazo">export default User;</code>
+                            - a modell <b>alapértelmezett</b> kivitele.
+                        </li>
+                    </ol>
+                </li>
+            </ul>
+        </div>
+        <script src="../../rejt.js"></script>
+    </body>
+</html>

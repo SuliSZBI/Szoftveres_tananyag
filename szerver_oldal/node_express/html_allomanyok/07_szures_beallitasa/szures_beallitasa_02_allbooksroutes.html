@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="../../expressjs.svg" type="image/x-icon" />
+        <link rel="stylesheet" href="../../stilus/stilus.css" />
+        <title>Szűrés beállítása - allBooksRoutesBackend.mjs</title>
+    </head>
+    <body>
+        <div id="alap-kontener">
+            <h1>
+                <a href="./szures_beallitasa_01_getSzurtAllBooks.html">
+                    <img
+                        src="../../angle-square-left.png"
+                        id="jobb-ikon"
+                        title="Szűrés beállítása - getAllSzurtBooksControllersBackend.mjs" />
+                </a>
+                <a href="../../index.html">Szűrés beállítása - allBooksRoutesBackend.mjs</a>
+                <a href="./szures_beallitasa_03_allbooks.html"
+                    ><img
+                        src="../../angle-square-right.png"
+                        id="jobb-ikon"
+                        title="Szűrés beállítása - all_Books.ejs" />
+                </a>
+            </h1>
+            <p>
+                Ebben a részben szerkesztjük a <code>routes</code> mappában a <code>allBooksRoutesBackend.mjs</code> állományt, amelyben összesítjük a <code>CRUD</code> műveletekhez tartozó logikákat.
+            </p>
+            <ul>
+                <li>
+                    Szerkesszük a <code>allBooksRoutesBackend.mjs</code> állományunkat.
+                    <button>Előtte</button> és <button>Utána</button>                     
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_079.png" />
+                        </div>
+                        <div class="kep">
+                            <img src="../../kepek/kep_099.png" />
+                        </div>
+                    </div>
+                    <ol>
+                        <li>
+                            <code class="magyarazo">import { getAllSzurtBooksBackend } from '../controllers/allBooks/getAllSzurtBooksControllersBackend.mjs';</code>
+                            - a <code>getAllSzurtBooksBackend</code> függvény
+                            <b>nevesített</b> importja.
+                        </li>
+                        <li>
+                            <code class="magyarazo">router.get('/szures/:id', getAllSzurtBooksBackend);</code>
+                            - a <code>http GET metódus</code>-hoz tartozó logika
+                            hívása a <code>getAllSzurtBooksBackend</code> függvény segítségével.
+                        </li>
+                    </ol>
+                </li>
+            </ul>
+        </div>
+        <script src="../../rejt.js"></script>
+    </body>
+</html>

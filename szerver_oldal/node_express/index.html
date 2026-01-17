@@ -3,137 +3,254 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="shortcut icon" href="./expressjs.svg" type="image/x-icon" />
         <link rel="stylesheet" href="./stilus/stilus.css" />
         <title>Szerveroldali logika - Node.js és Express.js</title>
+        <style>
+            button {
+                background-color: whitesmoke !important;
+                color: blue !important;
+                cursor: pointer;
+                font-size: 1em;
+                margin-left: 2em;
+            }
+
+            .material-icons {
+                font-size: 1em;
+            }
+
+            span {
+                display: inline-block;
+                margin-bottom: 10px;
+            }
+        </style>
     </head>
     <body>
         <div id="alap-kontener">
             <h1>Szerveroldali logika - Node.js és Express.js</h1>
-            <ul>
+            <ul style="list-style-type: none;">
                 <li>
-                    <a href="./html_allomanyok/01_szerver_alapok/szerver_alapok.html">Szerver alapok</a>
-                    <ol class="belso-ol">
-                        <li>
-                            <a href="./html_allomanyok/01_szerver_alapok/szerver_alapok_01_app_mjs.html">Szerver alapok - app.mjs</a>
-                        </li>
-                        <li>
-                            <a href="./html_allomanyok/01_szerver_alapok/szerver_alapok_02_dbconnection_mjs.html">Szerver alapok - utils/dbConnection.mjs</a>
-                        </li>
-                        <li>
-                            <a href="./html_allomanyok/01_szerver_alapok/szerver_alapok_03_dbconnect_mjs.html">Szerver alapok - dbConnect.mjs</a>
-                        </li>
-                        <li>
-                            <a href="./html_allomanyok/01_szerver_alapok/szerver_alapok_04_server_mjs.html">Szerver alapok - server.mjs</a>
-                        </li>
-                    </ol>
+                    <span class="alcim">Szerver alapok<button><i class="material-icons">cached</i></button></span>
+                    <div class="rejt" style="display: none;">
+                        <a href="./html_allomanyok/01_szerver_alapok/szerver_alapok.html">Szerver alapok - bevezetés</a>
+                        <ol class="belso-ol">
+                            <li>
+                                <a href="./html_allomanyok/01_szerver_alapok/szerver_alapok_01_app_mjs.html">Szerver alapok - app.mjs</a>
+                            </li>
+                            <li>
+                                <a href="./html_allomanyok/01_szerver_alapok/szerver_alapok_02_dbconnection_mjs.html">Szerver alapok - utils/dbConnection.mjs</a>
+                            </li>
+                            <li>
+                                <a href="./html_allomanyok/01_szerver_alapok/szerver_alapok_03_dbconnect_mjs.html">Szerver alapok - dbConnect.mjs</a>
+                            </li>
+                            <li>
+                                <a href="./html_allomanyok/01_szerver_alapok/szerver_alapok_04_server_mjs.html">Szerver alapok - server.mjs</a>
+                            </li>
+                        </ol>
+                    </div>
                 </li>
                 <li>
-                    <a href="./html_allomanyok/02_alap_route/alap_route.html">Alap route-olás</a>
-                    <ol class="belso-ol">
-                        <li>
-                            <a href="./html_allomanyok/02_alap_route/alap_route_01_maincontrollersbackend_mjs.html">Alap route-olás - mainControllersBackend.mjs</a>
-                        </li>
-                        <li>
-                            <a href="./html_allomanyok/02_alap_route/alap_route_02_mainroutesbackend_mjs.html">Alap route-olás - mainRoutesBackend.mjs</a>
-                        </li>
-                        <li>
-                            <a href="./html_allomanyok/02_alap_route/alap_route_03_mainrouting_mjs.html">Alap route-olás - mainRouting.mjs</a>
-                        </li>
-                        <li>
-                            <a href="./html_allomanyok/02_alap_route/alap_route_04_index_ejs.html">Alap route-olás - index.ejs, nav.ejs és alap.css, main.css</a>
-                        </li>
-                        <li>
-                            <a href="./html_allomanyok/02_alap_route/alap_route_05_404_ejs.html">Alap route-olás - 404.ejs és 404.css</a>
-                        </li>
-                    </ol>
+                    <span class="alcim">Alap route-olás<button><i class="material-icons">cached</i></button></span>
+                    <div class="rejt" style="display: none;">
+                        <a href="./html_allomanyok/02_alap_route/alap_route.html">Alap route-olás - bevezetés</a>
+                        <ol class="belso-ol">
+                            <li>
+                                <a href="./html_allomanyok/02_alap_route/alap_route_01_maincontrollersbackend_mjs.html">Alap route-olás - mainControllersBackend.mjs</a>
+                            </li>
+                            <li>
+                                <a href="./html_allomanyok/02_alap_route/alap_route_02_mainroutesbackend_mjs.html">Alap route-olás - mainRoutesBackend.mjs</a>
+                            </li>
+                            <li>
+                                <a href="./html_allomanyok/02_alap_route/alap_route_03_mainrouting_mjs.html">Alap route-olás - mainRouting.mjs</a>
+                            </li>
+                            <li>
+                                <a href="./html_allomanyok/02_alap_route/alap_route_04_index_ejs.html">Alap route-olás - index.ejs, nav.ejs és alap.css, main.css</a>
+                            </li>
+                            <li>
+                                <a href="./html_allomanyok/02_alap_route/alap_route_05_404_ejs.html">Alap route-olás - 404.ejs és 404.css</a>
+                            </li>
+                        </ol>
+                    </div>
                 </li>
                 <li>
-                    <a href="./html_allomanyok/03_nem_letezo_route/nem_letezo_route.html">Nem létező route</a>
-                    
+                    <span class="alcim">Nem létező route<button><i class="material-icons">cached</i></button></span>
+                    <div class="rejt" style="display: none;">
+                        <a href="./html_allomanyok/03_nem_letezo_route/nem_letezo_route.html">Nem létező route - bevezetés</a>    
+                    </div>
                 </li>
                 <li>
-                    <a href="./html_allomanyok/04_uj_konyv/uj_konyv.html">Új könyv felvétele</a>
-                    <ol class="belso-ol">
-                        <li>
-                            <a href="./html_allomanyok/04_uj_konyv/uj_konyv_01_book_model.html">Új könyv felvétele - BookModelOnePicture.mjs</a>
-                        </li>
-                        <li>
-                            <a href="./html_allomanyok/04_uj_konyv/uj_konyv_02_getNewBook.html">Új könyv felvétele - getNewBookControllersBackend.mjs</a>
-                        </li>
-                        <li>
-                            <a href="./html_allomanyok/04_uj_konyv/uj_konyv_03_postNewBook.html">Új könyv felvétele - postNewBookControllersBackend.mjs</a>
-                        </li>
-                        <li>
-                            <a href="./html_allomanyok/04_uj_konyv/uj_konyv_04_onepicturetocloudinary.html">Új könyv felvétele - onePictureToCloudinary.mjs</a>
-                        </li>
-                        <li>
-                            <a href="./html_allomanyok/04_uj_konyv/uj_konyv_05_newbookroutesbackend.html">Új könyv felvétele - newBookRoutesBackend.mjs</a>
-                        </li>
-                        <li>
-                            <a href="./html_allomanyok/04_uj_konyv/uj_konyv_06_newbookrouting.html">Új könyv felvétele - newBookRouting.mjs</a>
-                        </li>
-                        <li>
-                            <a href="./html_allomanyok/04_uj_konyv/uj_konyv_07_new_book.html">Új könyv felvétele - new_book.ejs</a>
-                        </li>
-                        <li>
-                            <a href="./html_allomanyok/04_uj_konyv/uj_konyv_08_new_book_letrehoz.html">Új könyv felvétele - new_book_letrehoz.mjs</a>
-                        </li>
-                    </ol>
+                    <span class="alcim">Új könyv felvétele<button><i class="material-icons">cached</i></button></span>
+                    <div class="rejt" style="display: none;">
+                        <a href="./html_allomanyok/04_uj_konyv/uj_konyv.html">Új könyv felvétele - bevezetés</a>
+                        <ol class="belso-ol">
+                            <li>
+                                <a href="./html_allomanyok/04_uj_konyv/uj_konyv_01_book_model.html">Új könyv felvétele - BookModelOnePicture.mjs</a>
+                            </li>
+                            <li>
+                                <a href="./html_allomanyok/04_uj_konyv/uj_konyv_02_getNewBook.html">Új könyv felvétele - getNewBookControllersBackend.mjs</a>
+                            </li>
+                            <li>
+                                <a href="./html_allomanyok/04_uj_konyv/uj_konyv_03_postNewBook.html">Új könyv felvétele - postNewBookControllersBackend.mjs</a>
+                            </li>
+                            <li>
+                                <a href="./html_allomanyok/04_uj_konyv/uj_konyv_04_onepicturetocloudinary.html">Új könyv felvétele - onePictureToCloudinary.mjs</a>
+                            </li>
+                            <li>
+                                <a href="./html_allomanyok/04_uj_konyv/uj_konyv_05_newbookroutesbackend.html">Új könyv felvétele - newBookRoutesBackend.mjs</a>
+                            </li>
+                            <li>
+                                <a href="./html_allomanyok/04_uj_konyv/uj_konyv_06_newbookrouting.html">Új könyv felvétele - newBookRouting.mjs</a>
+                            </li>
+                            <li>
+                                <a href="./html_allomanyok/04_uj_konyv/uj_konyv_07_new_book.html">Új könyv felvétele - new_book.ejs</a>
+                            </li>
+                            <li>
+                                <a href="./html_allomanyok/04_uj_konyv/uj_konyv_08_new_book_letrehoz.html">Új könyv felvétele - new_book_letrehoz.mjs</a>
+                            </li>
+                        </ol>
+                    </div>
                 </li>
                 <li>
-                    <a href="./html_allomanyok/05_osszes_konyv/osszes_konyv.html">Összes könyv kezelése</a>
-                    <ol class="belso-ol">
-                        <li>
-                            <a href="./html_allomanyok/05_osszes_konyv/osszes_konyv_01_getAllBooks.html">Összes könyv kezelése - getAllBooksControllersBackend.mjs</a>
-                        </li>
-                        <li>
-                            <a href="./html_allomanyok/05_osszes_konyv/osszes_konyv_02_onepicturedelete.html">Összes könyv kezelése - onePictureDeleteFromCloudinary.mjs</a>
-                        </li>
-                        <li>
-                            <a href="./html_allomanyok/05_osszes_konyv/osszes_konyv_03_deleteonebook.html">Összes könyv kezelése - deleteOneBookControllersBackend.mjs</a>
-                        </li>
-                        <li>
-                            <a href="./html_allomanyok/05_osszes_konyv/osszes_konyv_04_allbooksroutes.html">Összes könyv kezelése - allBooksRoutesBackend.mjs</a>
-                        </li>
-                        <li>
-                            <a href="./html_allomanyok/05_osszes_konyv/osszes_konyv_05_allbooksrouting.html">Összes könyv kezelése - allBooksRouting.mjs</a>
-                        </li>
-                        <li>
-                            <a href="./html_allomanyok/05_osszes_konyv/osszes_konyv_06_allbooks.html">Összes könyv kezelése - all_Books.ejs</a>
-                        </li>
-                        <li>
-                            <a href="./html_allomanyok/05_osszes_konyv/osszes_konyv_07_bookkezel.html">Összes könyv kezelése - book_kezel.mjs</a>
-                        </li>
-                    </ol>
+                    <span class="alcim">Összes könyv kezelése<button><i class="material-icons">cached</i></button></span>
+                    <div class="rejt" style="display: none;">
+                        <a href="./html_allomanyok/05_osszes_konyv/osszes_konyv.html">Összes könyv kezelése - bevezetés</a>
+                        <ol class="belso-ol">
+                            <li>
+                                <a href="./html_allomanyok/05_osszes_konyv/osszes_konyv_01_getAllBooks.html">Összes könyv kezelése - getAllBooksControllersBackend.mjs</a>
+                            </li>
+                            <li>
+                                <a href="./html_allomanyok/05_osszes_konyv/osszes_konyv_02_onepicturedelete.html">Összes könyv kezelése - onePictureDeleteFromCloudinary.mjs</a>
+                            </li>
+                            <li>
+                                <a href="./html_allomanyok/05_osszes_konyv/osszes_konyv_03_deleteonebook.html">Összes könyv kezelése - deleteOneBookControllersBackend.mjs</a>
+                            </li>
+                            <li>
+                                <a href="./html_allomanyok/05_osszes_konyv/osszes_konyv_04_allbooksroutes.html">Összes könyv kezelése - allBooksRoutesBackend.mjs</a>
+                            </li>
+                            <li>
+                                <a href="./html_allomanyok/05_osszes_konyv/osszes_konyv_05_allbooksrouting.html">Összes könyv kezelése - allBooksRouting.mjs</a>
+                            </li>
+                            <li>
+                                <a href="./html_allomanyok/05_osszes_konyv/osszes_konyv_06_allbooks.html">Összes könyv kezelése - all_Books.ejs</a>
+                            </li>
+                            <li>
+                                <a href="./html_allomanyok/05_osszes_konyv/osszes_konyv_07_bookkezel.html">Összes könyv kezelése - book_kezel.mjs</a>
+                            </li>
+                        </ol>
+                    </div>
                 </li>
                 <li>
-                    <a href="./html_allomanyok/06_egy_konyv/egy_konyv.html">Egy könyv kezelése</a>
-                    <ol class="belso-ol">
-                        <li>
-                            <a href="./html_allomanyok/06_egy_konyv/egy_konyv_01_getOneBook.html">Egy könyv kezelése - getOneBookControllersBackend.mjs</a>
-                        </li>
-                        <li>
-                            <a href="./html_allomanyok/06_egy_konyv/egy_konyv_02_getModositOneBook.html">Egy könyv kezelése - getModositOneBookControllersBackend.mjs</a>
-                        </li>
-                        <li>
-                            <a href="./html_allomanyok/06_egy_konyv/egy_konyv_03_updateOneBook.html">Egy könyv kezelése - updateOneBookControllersBackend.mjs</a>
-                        </li>
-                        <li>
-                            <a href="./html_allomanyok/06_egy_konyv/egy_konyv_04_allbooksroutes.html">Egy könyv kezelése - allBooksRoutesBackend.mjs</a>
-                        </li>
-                        <li>
-                            <a href="./html_allomanyok/06_egy_konyv/egy_konyv_05_onebook.html">Egy könyv kezelése - one_Book.ejs</a>
-                        </li>
-                        <li>
-                            <a href="./html_allomanyok/06_egy_konyv/egy_konyv_06_modositbook.html">Egy könyv kezelése - modosit_Book.ejs</a>
-                        </li>
-                        <li>
-                            <a href="./html_allomanyok/06_egy_konyv/egy_konyv_07_bookmodosit.html">Egy könyv kezelése - book_modosit.mjs</a>
-                        </li>
-                    </ol>
+                    <span class="alcim">Egy könyv kezelése<button><i class="material-icons">cached</i></button></span>
+                    <div class="rejt" style="display: none;">
+                        <a href="./html_allomanyok/06_egy_konyv/egy_konyv.html">Egy könyv kezelése - bevezetés</a>
+                        <ol class="belso-ol">
+                            <li>
+                                <a href="./html_allomanyok/06_egy_konyv/egy_konyv_01_getOneBook.html">Egy könyv kezelése - getOneBookControllersBackend.mjs</a>
+                            </li>
+                            <li>
+                                <a href="./html_allomanyok/06_egy_konyv/egy_konyv_02_getModositOneBook.html">Egy könyv kezelése - getModositOneBookControllersBackend.mjs</a>
+                            </li>
+                            <li>
+                                <a href="./html_allomanyok/06_egy_konyv/egy_konyv_03_updateOneBook.html">Egy könyv kezelése - updateOneBookControllersBackend.mjs</a>
+                            </li>
+                            <li>
+                                <a href="./html_allomanyok/06_egy_konyv/egy_konyv_04_allbooksroutes.html">Egy könyv kezelése - allBooksRoutesBackend.mjs</a>
+                            </li>
+                            <li>
+                                <a href="./html_allomanyok/06_egy_konyv/egy_konyv_05_onebook.html">Egy könyv kezelése - one_Book.ejs</a>
+                            </li>
+                            <li>
+                                <a href="./html_allomanyok/06_egy_konyv/egy_konyv_06_modositbook.html">Egy könyv kezelése - modosit_Book.ejs</a>
+                            </li>
+                            <li>
+                                <a href="./html_allomanyok/06_egy_konyv/egy_konyv_07_bookmodosit.html">Egy könyv kezelése - book_modosit.mjs</a>
+                            </li>
+                        </ol>
+                    </div>
+                </li>
+                <li>
+                    <span class="alcim">Szűrés beállítása<button><i class="material-icons">cached</i></button></span>
+                    <div class="rejt" style="display: none;">
+                        <a href="./html_allomanyok/07_szures_beallitasa/szures_beallitasa.html">Szűrés beállítása - bevezetés</a>
+                        <ol class="belso-ol">
+                            <li>
+                                <a href="./html_allomanyok/07_szures_beallitasa/szures_beallitasa_01_getSzurtAllBooks.html">Szűrés beállítása - getAllSzurtBooksControllersBackend.mjs</a>
+                            </li>
+                            <li>
+                                <a href="./html_allomanyok/07_szures_beallitasa/szures_beallitasa_02_allbooksroutes.html">Szűrés beállítása - allBooksRoutesBackend.mjs</a>
+                            </li>
+                            <li>
+                                <a href="./html_allomanyok/07_szures_beallitasa/szures_beallitasa_03_allbooks.html">Szűrés beállítása - all_Books.ejs</a>
+                            </li>
+                            <li>
+                                <a href="./html_allomanyok/07_szures_beallitasa/szures_beallitasa_03_allbooks.html">Szűrés beállítása - book_szures.mjs</a>
+                            </li>
+                        </ol>
+                    </div>
+                </li>
+                <li>
+                    <span class="alcim">Regisztráció kezelése<button><i class="material-icons">cached</i></button></span>
+                    <div class="rejt" style="display: none;">
+                        <a href="./html_allomanyok/08_regisztracio/regisztracio.html">Regisztráció kezelése - bevezetés</a>
+                        <ol class="belso-ol">
+                            <li>
+                                <a href="./html_allomanyok/08_regisztracio/regisztracio_01_user_model.html">Regisztráció kezelése - UserModel.mjs</a>
+                            </li>
+                            <li>
+                                <a href="./html_allomanyok/08_regisztracio/regisztracio_02_postNewUser.html">Regisztráció kezelése - registerControllers.mjs</a>
+                            </li>
+                            <li>
+                                <a href="./html_allomanyok/08_regisztracio/regisztracio_03_registerroutes.html">Regisztráció kezelése - userRoutes.mjs</a>
+                            </li>
+                            <li>
+                                <a href="./html_allomanyok/08_regisztracio/regisztracio_04_userrouting.html">Regisztráció kezelése - userRouting.mjs</a>
+                            </li>
+                        </ol>
+                    </div>
+                </li>
+                <li>
+                    <span class="alcim">Bejelentkezés kezelése<button><i class="material-icons">cached</i></button></span>
+                    <div class="rejt">
+                        <a href="./html_allomanyok/09_bejelentkezes/bejelentkezes.html">Bejelentkezés kezelése - bevezetés</a>
+                        <ol class="belso-ol">
+                            <li>
+                                <a href="./html_allomanyok/09_bejelentkezes/bejelentkezes_01_loginUser.html">Bejelentkezés kezelése - loginControllers.mjs</a>
+                            </li>
+                            <li>
+                                <a href="./html_allomanyok/09_bejelentkezes/bejelentkezes_02_loginroutes.html">Bejelentkezés kezelése - userRoutes.mjs</a>
+                            </li>
+                        </ol>
+                    </div>
+                </li>
+                <li>
+                    <span class="alcim">Fizetés beállítása<button><i class="material-icons">cached</i></button></span>
+                    <div class="rejt" style="display: none;">
+                        <a href="./html_allomanyok/07_szures_beallitasa/szures_beallitasa.html">Fizetés beállítása - bevezetés</a>
+                        <ol class="belso-ol">
+                            <li>
+                                <a href="./html_allomanyok/07_szures_beallitasa/szures_beallitasa_01_getOneBook.html">Egy könyv kezelése - getOneBookControllersBackend.mjs</a>
+                            </li>
+                        </ol>
+                    </div>
                 </li>
             </ul>
         </div>
+        <script>
+            let gombok = document.querySelectorAll('button');
+            console.log(gombok);
+            let rejt = document.querySelectorAll('.rejt');
+            console.log(rejt);
+
+            for (let i = 0; i < gombok.length; i++) {
+                gombok[i].addEventListener('click', () => {                    
+                    if (rejt[i].style.display === 'none') {
+                        rejt[i].style.display = 'block';
+                    } else if (rejt[i].style.display === 'block') {
+                        rejt[i].style.display = 'none';
+                    } 
+                })
+            }
+        </script>
     </body>
 </html>

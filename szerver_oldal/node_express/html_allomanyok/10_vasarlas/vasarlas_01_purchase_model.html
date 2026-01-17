@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="../../expressjs.svg" type="image/x-icon" />
+        <link rel="stylesheet" href="../../stilus/stilus.css" />
+        <title>Vásárlás kezelése - PurchaseModel.mjs</title>
+    </head>
+    <body>
+        <div id="alap-kontener">
+            <h1>
+                <a href="./vasarlas.html">
+                    <img
+                        src="../../angle-square-left.png"
+                        id="jobb-ikon"
+                        title="Vásárlás kezelése - bevezetés" />
+                </a>
+                <a href="../../index.html">Vásárlás kezelése - PurchaseModel.mjs</a>
+                <a href="./vasarlas_02_getAllPurchases.html"
+                    ><img
+                        src="../../angle-square-right.png"
+                        id="jobb-ikon"
+                        title="Vásárlás kezelése - getAllPurchasesControllersBackend.mjs" />
+                </a>
+            </h1>
+            <p>
+                Ebben a részben létrehozzuk a <code>Purchase</code> adatbázis modelünket.
+            </p>
+            <ul>
+                <li>
+                    Szerkesszük a <code>PurchaseModel.mjs</code> állományunkat.
+                    <button>PurchaseModel.mjs</button>                    
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_118.png" />
+                        </div>
+                    </div>
+                    <ol>
+                        <li>
+                            <code class="magyarazo">import mongoose from 'mongoose';</code>
+                            - a <code>mongoose</code> <code>npm</code> csomag
+                            beimportálása.
+                        </li>
+                        <li>
+                            <code class="magyarazo">const purchaseSchema = new mongoose.Schema({...}, {...});</code>
+                            - a <code>MongoDB</code> adatbázishoz tartozó
+                            <b>gyűjtemény</b> (collection) felépítési sémája.
+                        </li>
+                        <li>
+                            <code class="magyarazo">{ timestamps: true }</code>
+                            - időbélyező létrehozáskor és utolsó módosításkor.
+                        </li>
+                        <li>
+                            <code class="magyarazo">const Purchase = mongoose.model('purchase', purchaseSchema);</code>
+                            - sémából létrehozott <b>modell</b>.
+                        </li>
+                        <li>
+                            <code class="magyarazo">export default Purchase;</code>
+                            - a modell <b>alapértelmezett</b> kivitele.
+                        </li>
+                    </ol>
+                </li>
+            </ul>
+        </div>
+        <script src="../../rejt.js"></script>
+    </body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="../../expressjs.svg" type="image/x-icon" />
+        <link rel="stylesheet" href="../../stilus/stilus.css" />
+        <title>Vásárlás kezelése - purchases.ejs</title>
+    </head>
+    <body>
+        <div id="alap-kontener">
+            <h1>
+                <a href="./vasarlas_05_purchaserouting.html">
+                    <img
+                        src="../../angle-square-left.png"
+                        id="jobb-ikon"
+                        title="Vásárlás kezelése - purchaseRouting.mjs" />
+                </a>
+                <a href="../../index.html">Vásárlás kezelése - purchases.ejs</a>
+            </h1>
+            <p>
+                Ebben a részben szerkesztjük az <code>views/purchases</code> mappában a vásárlások kezeléséhez szükséges <code>ejs</code> állományokat.
+            </p>
+            <ul>
+                <li>
+                    Szerkesszük a <code>nav.ejs</code> állományt. <button>Előtte</button> és <button>Utána</button>
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_064.png" />
+                        </div>
+                        <div class="kep">
+                            <img src="../../kepek/kep_124.png" />
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    Szerkesszük a <code>purchases.ejs</code> állományt. <button>purchases.ejs</button> és <button>böngésző</button>                    
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_125.png" />
+                        </div>
+                        <div class="kep">
+                            <img src="../../kepek/kep_126.png" />
+                        </div>
+                    </div>
+                    <ol>
+                        <li>
+                            <code class="magyarazo">&lt;link rel="stylesheet" href="/css/purchases.css" /&gt;</code>
+                            - mivel a <code>server.mjs</code> állományban beállítottuk a hivatkozást a
+                            <code>public</code> mappára, ezért minden elemére ilyen speciálisan tudunk hivatkozni.
+                        </li>
+                        <li>
+                            <code class="magyarazo">&lt;%- include('../nav.ejs') %&gt;</code>
+                            - beimportálása a <code>nav.ejs</code> állománynak.
+                        </li>
+                        <li>
+                            <code class="magyarazo">&lt;%- include('konyv.ejs', { item }) %&gt;</code>
+                            - beimportálása a <code>konyv.ejs</code> állománynak, ahol átadjuk a <code>{ item }</code> objektumot.
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    Szerkesszük a <code>konyv.ejs</code> állományt. <button>konyv.ejs</button>
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_127.png" />
+                        </div>
+                    </div>
+                    <ol>
+                        <li>
+                            <code class="magyarazo">&lt;p&gt;&lt;%= item.cim %&gt;&lt;/p&gt;</code>
+                            - a <code>purchases.ejs</code>-től kapott objektumból kivesszük az <code>item.cim</code> értéket.
+                        </li>
+                        <li>
+                            <code class="magyarazo">&lt;img src="&lt;%= item.kep %&gt;" /&gt;</code>
+                            - a <code>purchases.ejs</code>-től kapott objektumból kivesszük az <code>item.kep</code> értéket.
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    Szerkesszük az
+                    <code>purchases.css</code> állományt.
+                    <button>purchases.css</button>
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_128.png" />
+                        </div>
+                    </div>
+                </li>
+                <li>
+                            Az eddigi munka letölthető formátumban:
+                            <a href="../../download_allomanyok/backend_08.rar" download="backend_08.rar">backend_08.rar</a>
+                            <br />Letöltés és kicsomagolás után a
+                            <code>GitBash</code> felületen a
+                            <code>backend</code> mappában adjuk ki a következő
+                            utasítást: <br />
+                            <code class="kod-reszlet">npm install</code>
+                        </li>
+                <li>
+                    A webszerver futtatásához adjuk ki a következő utasítást a <code>GitBash</code> felületen: <br /> 
+                    <code class="kod-reszlet">node --watch ./src/server.mjs</code>
+                </li>
+            </ul>
+        </div>
+        <script src="../../rejt.js"></script>
+    </body>
+</html>

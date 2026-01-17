@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="../../expressjs.svg" type="image/x-icon" />
+        <link rel="stylesheet" href="../../stilus/stilus.css" />
+        <title>Vásárlás kezelése - purchaseRouting.mjs</title>
+    </head>
+    <body>
+        <div id="alap-kontener">
+            <h1>
+                <a href="./vasarlas_04_newpurchaseroutesbackend.html">
+                    <img
+                        src="../../angle-square-left.png"
+                        id="jobb-ikon"
+                        title="Vásárlás kezelése - purchaseRoutes.mjs" />
+                </a>
+                <a href="../../index.html">Vásárlás kezelése - purchaseRouting.mjs</a>
+                <a href="./vasarlas_06_purchaseejs.html"
+                    ><img
+                        src="../../angle-square-right.png"
+                        id="jobb-ikon"
+                        title="Vásárlás kezelése - purchases.ejs" />
+                </a>
+            </h1>
+            <p>
+                Ebben a részben szerkesztjük az <code>src/routing</code> mappában a <code>purchaseRouting.mjs</code> állományt, amelyben összekötjük a <code>/api/new-book</code> <code>route</code>-ot a logikával.
+            </p>
+            <ul>
+                <li>
+                    Szerkesszük a <code>purchaseRouting.mjs</code> állományt. <button>purchaseRouting.mjs</button>                    
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_122.png" />
+                        </div>
+                    </div>
+                    <ol>
+                        <li>
+                            <code class="magyarazo">import app from '../app.mjs';</code>
+                            - az <code>app</code> objektum <b>alapértelmezett</b> beimportálása.
+                        </li>
+                        <li>
+                            <code class="magyarazo">import purchaseRouter from '../../routes/purchaseRoutes.mjs';</code>
+                            - a <code>purchaseRouter</code> függvény
+                            <b>alapértelmezett</b> beimportálása.
+                        </li>
+                        <li>
+                            <code class="magyarazo">app.use('/api/purchase', purchaseRouter);</code>
+                            - a <code>use</code> <code>middleware</code> segítségével a
+                            <code>/api/purchase</code> <code>route</code>-hoz csatoljuk a
+                            <code>purchaseRouter</code> függvényt. <br />
+                            Azaz bármikor is küldünk egy
+                            <code>http://localhost:PORT/api/purchase</code> lekérést a
+                            webszervernek, akkor az ehhez tartozó logikával tér vissza.
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    Szerkesszük újra a <code>server.mjs</code> állományt. <button>Előtte</button> és <button>Utána</button>
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_112.png" />
+                        </div>
+                        <div class="kep">
+                            <img src="../../kepek/kep_123.png" />
+                        </div>
+                    </div>
+                    <ol>
+                        <li>
+                            <code class="magyarazo">await import('./routing/purchaseRouting.mjs');</code>
+                            - importáljuk be a <code>purchaseRouting.mjs</code>-ben létrehozott <code>promise</code>-t.
+                        </li>
+                        
+                    </ol>
+                </li>
+            </ul>
+        </div>
+        <script src="../../rejt.js"></script>
+    </body>
+</html>

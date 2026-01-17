@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="../../expressjs.svg" type="image/x-icon" />
+        <link rel="stylesheet" href="../../stilus/stilus.css" />
+        <title>Vásárlás kezelése - getAllPurchasesControllersBackend.mjs</title>
+    </head>
+    <body>
+        <div id="alap-kontener">
+            <h1>
+                <a href="./vasarlas_01_purchase_model.html">
+                    <img
+                        src="../../angle-square-left.png"
+                        id="jobb-ikon"
+                        title="Vásárlás kezelése - PurchaseModel.mjs" />
+                </a>
+                <a href="../../index.html">Vásárlás kezelése - getAllPurchasesControllersBackend.mjs</a>
+                <a href="./vasarlas_03_postNewPurchase.html"
+                    ><img
+                        src="../../angle-square-right.png"
+                        id="jobb-ikon"
+                        title="Vásárlás kezelése - postNewPurchaseControllersBackend.mjs" />
+                </a>
+            </h1>
+            <p>
+                Ebben a részben szerkesztjük a <code>controllers/purchases</code> mappában a <code>getAllPurchasesControllersBackend.mjs</code> állományt, amelyben kidolgozzuk a <code>CRUD</code> <code>Read</code> művelethez tartozó logikát. Ez megfelel a <code>http GET metódus</code>-hoz tartozó logikának.
+            </p>
+            <ul>
+                <li>
+                    Szerkesszük a <code>getAllPurchasesControllersBackend.mjs</code> állományunkat.
+                    <button>getAllPurchasesControllersBackend.mjs</button>                    
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_119.png" />
+                        </div>
+                    </div>
+                        <ol>
+                        <li>
+                            <code class="magyarazo">import Purchase from '../../models/PurchaseModel.mjs';</code>
+                            - a <code>Purchase</code> modell <b>alapértelmezett</b> beimportálása.
+                        </li>
+                        <li>
+                            <code class="magyarazo">export const getAllPurchases = (req, res) => {...};</code>
+                            - hozzuk létre és vigyük ki <b>nevesítve</b> a
+                            <code>http GET metódus</code>-hoz tartozó logikát (<code>Read</code> a
+                            <code>CRUD</code> műveletekből).
+                        </li>
+                        <li>
+                            <code class="magyarazo">try {... res.statusCode = 200; return res.render('purchases/purchases.ejs', { vasarlasok }); }</code>
+                            - a sikeres ág a <b>200</b>-as <code>http hibakód</code>-dal. A vásárlásokat átadjuk a <code>purchases/purchases.ejs</code> állománynak.
+                        </li>
+                        <li>
+                            <code class="magyarazo">const vasarlasok = await Purchase.find({}).populate('vasarlo').populate('konyvek');</code>
+                            - keressük meg a vásárlásokat, majd helyettesítsük be a <code>vasarlo</code> és <code>konyvek</code> értékeket a <code>users</code> illetve <code>books</code> gyűjteményekből.
+                        </li>
+                        <li>
+                            <code class="magyarazo">catch (error) { res.statusCode = 404; return res.render('404.ejs'); }</code>
+                            - a sikertelen ág a <b>404</b>-es
+                            <code>http hibakód</code>-dal.
+                        </li>
+                    </ol>
+                </li>
+            </ul>
+        </div>
+        <script src="../../rejt.js"></script>
+    </body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="../../expressjs.svg" type="image/x-icon" />
+        <link rel="stylesheet" href="../../stilus/stilus.css" />
+        <title>Vásárlás kezelése - purchaseRoutes.mjs</title>
+    </head>
+    <body>
+        <div id="alap-kontener">
+            <h1>
+                <a href="./vasarlas_03_postNewPurchase.html">
+                    <img
+                        src="../../angle-square-left.png"
+                        id="jobb-ikon"
+                        title="Vásárlás kezelése - postNewPurchaseControllersBackend.mjs" />
+                </a>
+                <a href="../../index.html">Vásárlás kezelése - purchaseRoutes.mjs</a>
+                <a href="./vasarlas_05_purchaserouting.html"
+                    ><img
+                        src="../../angle-square-right.png"
+                        id="jobb-ikon"
+                        title="Vásárlás kezelése - purchaseRouting.mjs" />
+                </a>
+            </h1>
+            <p>
+                Ebben a részben szerkesztjük a <code>routes</code> mappában a <code>purchaseRoutes.mjs</code> állományt, amelyben összesítjük a <code>CRUD</code> műveletekhez tartozó logikákat.
+            </p>
+            <ul>
+                <li>
+                    Szerkesszük a <code>purchaseRoutes.mjs</code> állományunkat.
+                    <button>purchaseRoutes.mjs</button>                    
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_121.png" />
+                        </div>
+                    </div>
+                    <ol>
+                        <li>
+                            <code class="magyarazo">import express from 'express';</code>
+                            - az <code>express</code> <code>npm</code> csomag
+                            beimportálása.
+                        </li>
+                        <li>
+                            <code class="magyarazo">import { postNewPurchase } from '../controllers/purchases/postNewPurchaseControllersBackend.mjs';</code>
+                            - a <code>postNewPurchase</code> függvény
+                            <b>nevesített</b> importja.
+                        </li>
+                        <li>
+                            <code class="magyarazo">import { getAllPurchases } from '../controllers/purchases/getAllPurchasesControllersBackend.mjs';</code>
+                            - a <code>getAllPurchases</code> függvény
+                            <b>nevesített</b> importja.
+                        </li>
+                        <li>
+                            <code class="magyarazo">const router = express.Router();</code>
+                            - mivel a webszerver jelölésére az <code>app</code> csak a
+                            <code>server.mjs</code> állományban használható,
+                            ezért itt már csak a <code>router</code> szóval hivatkozhatunk rá, amit az <code>express</code> objektum
+                            <code>Router()</code> függvényével tehetünk meg.
+                        </li>
+                        <li>
+                            <code class="magyarazo">router.get('/', getAllPurchases);</code>
+                            - a <code>http GET metódus</code>-hoz tartozó logika
+                            hívása a <code>getAllPurchases</code> függvény segítségével.
+                        </li>
+                        <li>
+                            <code class="magyarazo">router.post('/', postNewPurchase);</code>
+                            - a <code>http POST metódus</code>-hoz tartozó logika
+                            hívása a <code>postNewPurchase</code> függvény segítségével.
+                        </li>
+                        <li>
+                            <code class="magyarazo"
+                                >export default router;</code
+                            >
+                            - a szerver hívás <b>alapértelmezett</b> kivitele.
+                        </li>
+                    </ol>
+                </li>
+            </ul>
+        </div>
+        <script src="../../rejt.js"></script>
+    </body>
+</html>

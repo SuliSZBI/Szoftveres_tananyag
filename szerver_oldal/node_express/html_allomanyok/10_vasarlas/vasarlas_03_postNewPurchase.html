@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="../../expressjs.svg" type="image/x-icon" />
+        <link rel="stylesheet" href="../../stilus/stilus.css" />
+        <title>Vásárlás kezelése - postNewPurchaseControllersBackend.mjs</title>
+    </head>
+    <body>
+        <div id="alap-kontener">
+            <h1>
+                <a href="./vasarlas_02_getAllPurchases.html">
+                    <img
+                        src="../../angle-square-left.png"
+                        id="jobb-ikon"
+                        title="Vásárlás kezelése - getAllPurchasesControllersBackend.mjs" />
+                </a>
+                <a href="../../index.html">Vásárlás kezelése - postNewPurchaseControllersBackend.mjs</a>
+                <a href="./vasarlas_04_newpurchaseroutesbackend.html"
+                    ><img
+                        src="../../angle-square-right.png"
+                        id="jobb-ikon"
+                        title="Vásárlás kezelése - purchaseRoutes.mjs" />
+                </a>
+            </h1>
+            <p>
+                Ebben a részben szerkesztjük a <code>controllers/purchases</code> mappában a <code>postNewPurchaseControllersBackend.mjs</code> állományt, amelyben kidolgozzuk a <code>CRUD</code> <code>Creat</code> művelethez tartozó logikát. Ez megfelel a <code>http POST metódus</code>-hoz tartozó logikának.
+            </p>
+            <ul>
+                <li>
+                    Szerkesszük a <code>postNewPurchaseControllersBackend.mjs</code> állományunkat.
+                    <button>postNewPurchaseControllersBackend.mjs</button>                    
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_120.png" />
+                        </div>
+                    </div>
+                    <ol>
+                        <li>
+                            <code class="magyarazo">import User from '../models/UserModel.mjs';</code>
+                            - a <code>User</code> modell <b>alapértelmezett</b> beimportálása.
+                        </li>
+                        <li>
+                            <code class="magyarazo">import Book from '../models/BookModelOnePicture.mjs';</code>
+                            - a <code>Book</code> modell <b>alapértelmezett</b> beimportálása.
+                        </li>
+                        <li>
+                            <code class="magyarazo">import Purchase from '../models/PurchaseModel.mjs';</code>
+                            - a <code>Purchase</code> modell <b>alapértelmezett</b> beimportálása.
+                        </li>
+                        <li>
+                            <code class="magyarazo">export const postNewPurchase = (req, res) => {...};</code>
+                            - hozzuk létre és vigyük ki <b>nevesítve</b> a
+                            <code>http POST metódus</code>-hoz tartozó logikát (<code>Creat</code> a
+                            <code>CRUD</code> műveletekből).
+                        </li>
+                         <li>
+                            <code class="magyarazo">try {... res.statusCode = 201; return res.json({ msg: 'Sikeres vásárlás!' }); }</code>
+                            - a sikeres ág a <b>201</b>-es <code>http hibakód</code>-dal.
+                        </li>
+                        <li>
+                            <code class="magyarazo">const {...} = req.body;</code>
+                            - a <code>req.body</code> dekonstrukciója.
+                        </li>
+                        <li>
+                            <code class="magyarazo">const vasarlo = await User.findById({ _id: id });</code>
+                            - keressük meg a vásárlót.
+                        </li>
+                        <li>
+                            <code class="magyarazo">const konyvek = [];</code>
+                            - hozzunk létre egy tömböt, amelybe eltároljuk a megvett könyveket.
+                        </li>
+                        <li>
+                            <code class="magyarazo">const konyvKeres = await Book.findById({ _id: books[i]._id });</code>
+                            - keressük meg egyenként a könyveket.
+                        </li>
+                        <li>
+                            <code class="magyarazo">let peldanySzamKeres = konyvKeres.peldanySzam - books[i].darabszam;</code>
+                            - csökkentsük a példányszámokat.
+                        </li>
+                        <li>
+                            <code class="magyarazo">let eladottKeres = konyvKeres.eladott + books[i].darabszam;</code>
+                            - növeljük az eladott darabszámokat.
+                        </li>
+                        <li>
+                            <code class="magyarazo">const objektum = { peldanySzam: peldanySzamKeres, eladott: eladottKeres };
+			const konyv = await Book.findByIdAndUpdate({ _id: books[i]._id }, { $set: objektum });
+			konyvek.push(konyv);</code>
+                            - módosítsuk a könyveket ezekkel az értékekkel és adjuk hozzá a tömbhöz.
+                        </li>
+                        <li>
+                            <code class="magyarazo">const newPurchase = new Purchase({...});</code>
+                            - hozzunk létre egy új <code>Purchase</code> példányt a
+                            <code>req.body</code>-ból kapott értékekből.
+                        </li>
+                        <li>
+                            <code class="magyarazo">await newPurchase.save();</code>
+                            - mentsük el az adatbázisba.
+                        </li>
+                        <li>
+                            <code class="magyarazo">catch (error) { res.statusCode = 500; return
+                                res.json({ msg: 'Valami hiba történt!' + error.message }); }</code
+                            >
+                            - a sikertelen ág a <b>500</b>-as <code>http hibakód</code>-dal.
+                        </li>
+                    </ol>
+                </li>
+            </ul>
+        </div>
+        <script src="../../rejt.js"></script>
+    </body>
+</html>

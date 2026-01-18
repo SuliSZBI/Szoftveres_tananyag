@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="../../expressjs.svg" type="image/x-icon" />
+        <link rel="stylesheet" href="../../stilus/stilus.css" />
+        <title>Fizetés beállítása - stripeControllers.mjs</title>
+    </head>
+    <body>
+        <div id="alap-kontener">
+            <h1>
+                <a href="./fizetes.html">
+                    <img
+                        src="../../angle-square-left.png"
+                        id="jobb-ikon"
+                        title="Fizetés beállítása - bevezetés" />
+                </a>
+                <a href="../../index.html">Fizetés beállítása - stripeControllers.mjs</a>
+                <a href="./fizetes_02_striperoutes.html"
+                    ><img
+                        src="../../angle-square-right.png"
+                        id="jobb-ikon"
+                        title="Fizetés beállítása - stripeRoutes.mjs" />
+                </a>
+            </h1>
+            <p>
+                Ebben a részben szerkesztjük a <code>controllers/payment</code> mappában a <code>stripeControllers.mjs</code> állományt, amelyben kidolgozzuk a <code>CRUD</code> <code>Create</code> művelethez tartozó logikát. Ez megfelel a <code>http POST metódus</code>-hoz tartozó logikának.
+            </p>
+            <ul>
+                <li>
+                    Szerkesszük a <code>stripeControllers.mjs</code> állományunkat.
+                    <button>stripeControllers.mjs</button>                    
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_131.png" />
+                        </div>
+                    </div>
+                        <ol>
+                        <li>
+                            <code class="magyarazo">import Stripe from 'stripe';</code>
+                            - a <code>stripe</code> <code>npm</code> csomag beimportálása.
+                        </li>
+                        <li>
+                            <code class="magyarazo">const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);</code>
+                            - a kapcsolat kiépítése a kiszolgálóval az API segítségével.
+                        </li>
+                        <li>
+                            <code class="magyarazo">export const stripePayment = async (req, res) => {...};</code>
+                            - hozzuk létre és vigyük ki <b>nevesítve</b> a
+                            <code>http POST metódus</code>-hoz tartozó logikát (<code>Create</code> a
+                            <code>CRUD</code> műveletekből).
+                        </li>
+                        <li>
+                            <code class="magyarazo">try {... res.statusCode = 201; res.json({ url: session.url }); }</code>
+                            - a sikeres ág a <b>201</b>-es <code>http hibakód</code>-dal. Visszatérünk a fizetés <code>URL</code> címével.
+                        </li>
+                        <li>
+                            <code class="magyarazo">const {...} = req.body;</code>
+                            - a <code>req.body</code> dekonstrukciója.
+                        </li>
+                        <li>
+                            <code class="magyarazo">const tomb = [];</code>
+                            - hozzunk létre egy fizetési tömböt a tételek eltárolására.
+                        </li>
+                        <li>
+                            <code class="magyarazo">items.forEach(elem => {...});</code>
+                            - iteráljunk végig a tételeken.
+                        </li>
+                        <li>
+                            <code class="magyarazo">const obj = {...};</code>
+                            - hozzuk létre a tételhez tartozó fizetési <code>stripe</code> objektumot.
+                        </li>
+                        <li>
+                            <code class="magyarazo">tomb.push(obj);</code>
+                            - adjuk az objektumot a fizetési tömbhöz.
+                        </li>
+                        <li>
+                            <code class="magyarazo">if (items.length === 0) {
+            return res.status(400).json({ error: "Hiányzó adatok" });
+        }</code>
+                            - ha nem kapnánk tételeket, akkor jelezzük.
+                        </li>
+                        <li>
+                            <code class="magyarazo">const session = await stripe.checkout.sessions.create({...});</code>
+                            - hozzuk létre a fizetéshez tartozó <code>munkamenetet</code> (session).
+                        </li>
+                        <li>
+                            <code class="magyarazo">catch (error) { res.statusCode = 500; return
+                                res.json({ msg: 'Valami hiba történt!' + error.message }); }</code
+                            >
+                            - a sikertelen ág a <b>500</b>-as <code>http hibakód</code>-dal.
+                        </li>
+                    </ol>
+                </li>
+            </ul>
+        </div>
+        <script src="../../rejt.js"></script>
+    </body>
+</html>

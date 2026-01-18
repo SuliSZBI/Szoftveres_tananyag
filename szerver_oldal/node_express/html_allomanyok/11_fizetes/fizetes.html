@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="../../expressjs.svg" type="image/x-icon" />
+        <link rel="stylesheet" href="../../stilus/stilus.css" />
+        <title>Fizetés beállítása - bevezetés</title>
+    </head>
+    <body>
+        <div id="alap-kontener">
+            <h1>
+                <a href="../../index.html">Fizetés beállítása - bevezetés</a>
+                <a href="./fizetes_01_stripecontrollers.html"
+                    ><img
+                        src="../../angle-square-right.png"
+                        id="jobb-ikon"
+                        title="Fizetés beállítása - stripeControllers.mjs" />
+                </a>
+            </h1>
+            <p>
+                Ebben a részben létrehozzuk azt a logikát, ahol kezelni tudjuk a fizetéseket.
+            </p>
+            <ul>
+                 <li>
+                    Regisztráljunk a <a href="https://stripe.com/en-hu" target="_blank">Stripe</a>
+                    felületen, ha még nem lenne fiókunk.
+                </li>
+                <li>
+                    Telepítsük a szükséges <b>npm</b> csomagot. Ehhez adjunk
+                    ki a következő utasítást a <code>GitBash</code> felületen: <br />
+                    <code class="kod-reszlet">npm install stripe</code>
+                </li>
+                <li>
+                    A módosult <code>package.json</code> állomány.
+                    <button>Előtte</button> és <button>Utána</button>
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_003.png" />
+                        </div>
+                        <div class="kep">
+                            <img src="../../kepek/kep_129.png" />
+                        </div>
+                    </div>
+                    <ol>
+                        <li>
+                            <code class="magyarazo">stripe</code> 
+                            - online fizetés kezeléséhez.
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    Szerkesszük a <code>.env</code> állományt.
+                    <button>Előtte</button> és
+                    <button>Utána</button>
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_042.png" />
+                        </div>
+                        <div class="kep">
+                            <img src="../../kepek/kep_132.png" />
+                        </div>
+                    </div>
+                    <ol>
+                        <li>
+                            <code class="magyarazo"
+                                >STRIPE_SECRET_KEY=saját SECRET_KEY kulcs...</code
+                            >
+                            - mindenkinek a saját csatlakozási titkos kulcsa a
+                            <code>Stripe</code> felületről.
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    Hozzuk létre a következő állományokat:
+                    <ol>
+                        <li>
+                            <code>stripeControllers.mjs</code> a
+                            <code>controllers/payment</code> mappában,
+                        </li>
+                        <li>
+                            <code>stripeRoutes.mjs</code> a
+                            <code>routes</code> mappában,
+                        </li>
+                        <li>
+                            <code>stripeRouting.mjs</code> az
+                            <code>src/routing</code> mappában,
+                        </li>
+                    </ol>
+                    <button>Mappák</button>
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_130.png" />
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <script src="../../rejt.js"></script>
+    </body>
+</html>

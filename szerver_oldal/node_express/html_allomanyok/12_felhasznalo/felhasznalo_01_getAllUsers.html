@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="../../expressjs.svg" type="image/x-icon" />
+        <link rel="stylesheet" href="../../stilus/stilus.css" />
+        <title>Felhasználók kezelése - getAllUsersControllersBackend.mjs</title>
+    </head>
+    <body>
+        <div id="alap-kontener">
+            <h1>
+                <a href="./felhasznalo.html">
+                    <img
+                        src="../../angle-square-left.png"
+                        id="jobb-ikon"
+                        title="Felhasználók kezelése - bevezetés" />
+                </a>
+                <a href="../../index.html">Felhasználók kezelése - getAllUsersControllersBackend.mjs</a>
+                <a href="./felhasznalo_02_usersejs.html"
+                    ><img
+                        src="../../angle-square-right.png"
+                        id="jobb-ikon"
+                        title="Felhasználók kezelése - users.ejs" />
+                </a>
+            </h1>
+            <p>
+                Ebben a részben szerkesztjük a <code>controllers/users</code> mappában a <code>getAllUsersControllersBackend.mjs</code> állományt, amelyben kidolgozzuk a <code>CRUD</code> <code>Read</code> művelethez tartozó logikát. Ez megfelel a <code>http GET metódus</code>-hoz tartozó logikának.
+            </p>
+            <ul>
+                <li>
+                    Szerkesszük a <code>getAllUsersControllersBackend.mjs</code> állományunkat.
+                    <button>getAllUsersControllersBackend.mjs</button>                    
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_137.png" />
+                        </div>
+                    </div>
+                        <ol>
+                        <li>
+                            <code class="magyarazo">import User from '../../models/UserModel.mjs';</code>
+                            - a <code>User</code> modell <b>alapértelmezett</b> beimportálása.
+                        </li>
+                        <li>
+                            <code class="magyarazo">import Purchase from '../../models/PurchaseModel.mjs';</code>
+                            - a <code>Purchase</code> modell <b>alapértelmezett</b> beimportálása.
+                        </li>
+                        <li>
+                            <code class="magyarazo">export const getAllUsers = async (req, res) => {...};</code>
+                            - hozzuk létre és vigyük ki <b>nevesítve</b> a
+                            <code>http GET metódus</code>-hoz tartozó logikát (<code>Read</code> a
+                            <code>CRUD</code> műveletekből).
+                        </li>
+                        <li>
+                            <code class="magyarazo">try {... res.statusCode = 200; return res.render('users/users.ejs', { felhasznalok, vasarlasok }); }</code>
+                            - a sikeres ág a <b>200</b>-as <code>http hibakód</code>-dal. A vásárlásokat átadjuk a <code>users/users.ejs</code> állománynak.
+                        </li>
+                        <li>
+                            <code class="magyarazo">const felhasznalok = await User.find({});</code>
+                            - keressük meg a felhasználókat.
+                        </li>
+                        <li>
+                            <code class="magyarazo">const vasarlasok = await Purchase.find({}).populate('vasarlo').populate('konyvek');</code>
+                            - keressük meg a vásárlásokat, majd helyettesítsük be a <code>vasarlo</code> és <code>konyvek</code> értékeket a <code>users</code> illetve <code>books</code> gyűjteményekből.
+                        </li>
+                        <li>
+                            <code class="magyarazo">catch (error) { res.statusCode = 404; return res.render('404.ejs'); }</code>
+                            - a sikertelen ág a <b>404</b>-es
+                            <code>http hibakód</code>-dal.
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    Szerkesszük a <code>userRoutes.mjs</code> állományunkat.
+                    <button>Előtte</button> és <button>Utána</button>                    
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_115.png" />
+                        </div>
+                        <div class="kep">
+                            <img src="../../kepek/kep_138.png" />
+                        </div>
+                    </div>
+                    <ol>
+                        <li>
+                            <code class="magyarazo">import { getAllUsers } from '../controllers/users/getAllUsersControllersBackend.mjs';</code>
+                            - a <code>getAllUsers</code> függvény
+                            <b>nevesített</b> importja.
+                        </li>
+                        <li>
+                            <code class="magyarazo">router.get('/', getAllUsers);</code>
+                            - a <code>http GET metódus</code>-hoz tartozó logika
+                            hívása a <code>getAllUsers</code> függvény segítségével.
+                        </li>
+                    </ol>
+                </li>
+            </ul>
+        </div>
+        <script src="../../rejt.js"></script>
+    </body>
+</html>

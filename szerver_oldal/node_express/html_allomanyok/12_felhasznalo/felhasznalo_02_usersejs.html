@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="../../expressjs.svg" type="image/x-icon" />
+        <link rel="stylesheet" href="../../stilus/stilus.css" />
+        <title>Felhasználók kezelése - users.ejs</title>
+    </head>
+    <body>
+        <div id="alap-kontener">
+            <h1>
+                <a href="./felhasznalo_01_getAllUsers.html">
+                    <img
+                        src="../../angle-square-left.png"
+                        id="jobb-ikon"
+                        title="Felhasználók kezelése - getAllUsersControllersBackend.mjs" />
+                </a>
+                <a href="../../index.html">Felhasználók kezelése - users.ejs</a>
+            </h1>
+            <p>
+                Ebben a részben szerkesztjük az <code>views/users</code> mappában a vásárlások kezeléséhez szükséges <code>ejs</code> állományokat.
+            </p>
+            <ul>
+                <li>
+                    Szerkesszük a <code>nav.ejs</code> állományt. <button>Előtte</button> és <button>Utána</button>
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_124.png" />
+                        </div>
+                        <div class="kep">
+                            <img src="../../kepek/kep_140.png" />
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    Szerkesszük a <code>users.ejs</code> állományt. <button>users.ejs</button> és <button>böngésző</button>                    
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_139.png" />
+                        </div>
+                        <div class="kep">
+                            <img src="../../kepek/kep_141.png" />
+                        </div>
+                    </div>
+                    <ol>
+                        <li>
+                            <code class="magyarazo">&lt;link rel="stylesheet" href="/css/users.css" /&gt;</code>
+                            - mivel a <code>server.mjs</code> állományban beállítottuk a hivatkozást a
+                            <code>public</code> mappára, ezért minden elemére ilyen speciálisan tudunk hivatkozni.
+                        </li>
+                        <li>
+                            <code class="magyarazo">&lt;%- include('../nav.ejs') %&gt;</code>
+                            - beimportálása a <code>nav.ejs</code> állománynak.
+                        </li>
+                        <li>
+                            <code class="magyarazo">&lt;%- include('vasarlas.ejs', { konyvek: item.konyvek, idopont: item.idopont }) %&gt;</code>
+                            - beimportálása a <code>vasarlas.ejs</code> állománynak, ahol átadjuk a <code>{ konyvek: item.konyvek, idopont: item.idopont }</code> objektumot.
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    Szerkesszük a <code>vasarlas.ejs</code> állományt. <button>vasarlas.ejs</button>
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_142.png" />
+                        </div>
+                    </div>
+                    <ol>
+                        <li>
+                            <code class="magyarazo">&lt;%= idopont.toString().split('GMT')[0] %&gt;</code>
+                            - a <code>users.ejs</code>-től kapott objektumból kivesszük az <code>idopont</code> értéket és szerkesztjük.
+                        </li>
+                        <li>
+                            <code class="magyarazo">&lt;%- include('./konyv.ejs', { item }) %&gt;</code>
+                            - beimportálása a <code>konyv.ejs</code> állománynak, ahol átadjuk a <code>{ item }</code> objektumot.
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    Szerkesszük a <code>konyv.ejs</code> állományt. <button>konyv.ejs</button>
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_143.png" />
+                        </div>
+                    </div>
+                    <ol>
+                        <li>
+                            <code class="magyarazo">&lt;p&gt;&lt;%= item.cim %&gt;&lt;/p&gt;</code>
+                            - a <code>vasarlas.ejs</code>-től kapott objektumból kivesszük az <code>item.cim</code> értéket.
+                        </li>
+                        <li>
+                            <code class="magyarazo">&lt;img src="&lt;%= item.kep %&gt;" /&gt;</code>
+                            - a <code>vasarlas.ejs</code>-től kapott objektumból kivesszük az <code>item.kep</code> értéket.
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    Szerkesszük az
+                    <code>users.css</code> állományt.
+                    <button>users.css</button>
+                    <div class="kepek">
+                        <div class="kep">
+                            <img src="../../kepek/kep_144.png" />
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    Az eddigi munka letölthető formátumban:
+                    <a href="../../download_allomanyok/backend_10.rar" download="backend_10.rar">backend_10.rar</a>
+                    <br />Letöltés és kicsomagolás után a
+                    <code>GitBash</code> felületen a
+                    <code>backend</code> mappában adjuk ki a következő
+                    utasítást: <br />
+                    <code class="kod-reszlet">npm install</code>
+                </li>
+                <li>
+                    A webszerver futtatásához adjuk ki a következő utasítást a <code>GitBash</code> felületen: <br /> 
+                    <code class="kod-reszlet">node --watch ./src/server.mjs</code>
+                </li>
+            </ul>
+        </div>
+        <script src="../../rejt.js"></script>
+    </body>
+</html>
